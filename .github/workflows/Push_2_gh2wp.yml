@@ -1,0 +1,42 @@
+name: Push to Github2Wordpress Repository
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main 
+    paths:
+      - 'src/site/notes/**.md'
+
+jobs:
+  push-to-b-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout a repo
+        uses: actions/checkout@v3
+        with:
+          repository: dangehub/qlog
+          path: qlog
+          ref: main
+          token: ${{ secrets.ACCESS_TOKEN2 }}
+  
+          
+      - name: Checkout b repo
+        uses: actions/checkout@v3
+        with:
+          repository: dangehub/github2wp
+          path: github2wp
+          ref: main
+          token: ${{ secrets.ACCESS_TOKEN }}
+          
+      - name: Copy files from a to b local
+        run: |
+          cp -r qlog/src/site/notes/* github2wp/_posts/       
+
+      - name: Commit and push
+        run: |
+          cd ./github2wp
+          git config --global user.email "moruotaiqing@gmail.com"
+          git config --global user.name "dangehub"
+          git add -A
+          git commit -m "Synced posts" || exit 0
+          git push
