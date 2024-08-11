@@ -1,20 +1,14 @@
 ---
-share: true
-title: Obsidian 实现复制时自动上传图片到图床
-git_title: 2024-08-11-obsidian-pic-upload
-tags:
-  - geek
-categories:
-  - geek
-dg-publish: true
+{"share":true,"title":"Obsidian 实现复制时自动上传图片到图床","git_title":"2024-08-11-obsidian-pic-upload","tags":["geek"],"categories":["geek"],"dg-publish":true,"permalink":"/105 极客/写作工具/Obsidian 实现复制时自动上传图片到图床/","dgPassFrontmatter":true,"noteIcon":""}
 ---
+
 # Obsidian 实现复制时自动上传图片到图床
 
 [【QuickAdd脚本】带图复制-自动上传图片到图床 - 经验分享 - Obsidian 中文论坛](https://forum-zh.obsidian.md/t/topic/34059/8)
 
 我新开一个库可以用，但是在主力库里就不行，报错为
 
-![[assets/Pasted image 20240808164552.png|assets/Pasted image 20240808164552.png]]
+![assets/Pasted image 20240808164552.png](/img/user/105%20%E6%9E%81%E5%AE%A2/%E5%86%99%E4%BD%9C%E5%B7%A5%E5%85%B7/assets/Pasted%20image%2020240808164552.png)
 
 ```
 QuickAdd: (ERROR) failed to run user script 带
@@ -38,7 +32,7 @@ Received undlefined
 
 采用绝对路径也会有同样问题。改为尽量短路径就正常了。
 
-%%o-dca2%%用chatgpt修复这个bug（还得是chatgpt哇），修复版的脚本为：
+用chatgpt修复这个bug（还得是chatgpt哇），修复版的脚本为：
 
 ```
 const path = require('path');
@@ -74,7 +68,7 @@ module.exports = async () => {
 
       const data = await uploadFiles([imgPath], url);
       if (data.success) {
-        const imgWiki = `![[${embed}|${embed}]]`;
+        const imgWiki = `![[${embed}]]`;
         const imgLink = `![${embed}](${data.result})`;
         line = line.replace(imgWiki, imgLink);
       } else {
@@ -152,7 +146,7 @@ function copyToClipboard(extrTexts) {
 
 # 直接把图片上传到github
 
-用 github publisher 插件能把图片上传到 github，但是图片在文章中的格式是 `[[|]]` 的 wiki 链接，因此我们需要通过正则的方式来转换格式。
+用 github publisher 插件能把图片上传到 github，但是图片在文章中的格式是 `[[]]` 的 wiki 链接，因此我们需要通过正则的方式来转换格式。
 
 参考这篇文章 [obsidian图片链接转换成markdown语法，不关闭wiki链接_obsidian图片显示变成链接-CSDN博客](https://blog.csdn.net/shinigami2/article/details/128516807)
 
