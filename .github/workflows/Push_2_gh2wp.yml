@@ -33,18 +33,18 @@ jobs:
           cp -r qlog/src/site/notes/* github2wp/_posts/     
 
 
-      - name: Find and copy pictures from a to b
+      - name: Find and copy files from a to b
         run: |
           # 找到所有 `qlog/src/site/img/user` 下的文件夹
-          for dir in $(find qlog/src/site/img/user/* -type d); do
-            # 获取文件夹名称作为变量部分
-            var_name=$(basename "$dir")
+          for dir in $(find qlog/src/site/img/user/*/assets -type d); do
+            # 获取变量部分的文件夹名称
+            var_name=$(basename $(dirname "$dir"))
             
             # 确保目标路径存在
-            mkdir -p "github2wp/_posts/$var_name/"
+            mkdir -p "github2wp/_posts/$var_name/img/user/$var_name/assets"
             
-            # 将文件夹中的所有文件复制到目标路径
-            cp -r "$dir/"* "github2wp/_posts/$var_name/"
+            # 将 assets 文件夹中的所有文件复制到目标路径
+            cp -r "$dir/"* "github2wp/_posts/$var_name/img/user/$var_name/assets/"
           done
 
       - name: Commit and push
