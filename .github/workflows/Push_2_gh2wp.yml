@@ -44,7 +44,7 @@ jobs:
             mkdir -p "github2wp/_posts/$var_name/assets"
             
             # 将文件夹中的所有文件复制到目标路径
-            cp -r "$dir/"* "github2wp/_posts/$var_name/assets/"
+            cp -r "$dir/"* "github2wp/_posts/$var_name/"
           done
 
       - name: Commit and push
