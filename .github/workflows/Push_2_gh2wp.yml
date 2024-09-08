@@ -35,15 +35,15 @@ jobs:
 
       - name: Find and copy files from a to b
         run: |
-          # 找到所有 `qlog/src/site/img/user` 下的文件夹
-          for dir in $(find qlog/src/site/img/user/*/assets -type d); do
-            # 获取变量部分的文件夹名称
-            var_name=$(basename $(dirname "$dir"))
+          # 递归查找 `qlog/src/site/img/user/` 下的所有 `assets` 文件夹
+          find qlog/src/site/img/user/ -type d -name 'assets' | while read dir; do
+            # 获取 `assets` 文件夹上一级目录作为变量部分
+            var_name=$(dirname "${dir#qlog/src/site/img/user/}")
             
             # 确保目标路径存在
             mkdir -p "github2wp/_posts/$var_name/img/user/$var_name/assets"
             
-            # 将 assets 文件夹中的所有文件复制到目标路径
+            # 将 `assets` 文件夹中的所有文件复制到目标路径
             cp -r "$dir/"* "github2wp/_posts/$var_name/img/user/$var_name/assets/"
           done
 
