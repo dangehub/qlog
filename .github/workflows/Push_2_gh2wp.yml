@@ -33,20 +33,6 @@ jobs:
           cp -r qlog/src/site/notes/* github2wp/_posts/     
 
 
-      - name: Find and copy files from a to b
-        run: |
-          # 递归查找 `qlog/src/site/img/user/` 下的所有 `assets` 文件夹
-          find qlog/src/site/img/user/ -type d -name 'assets' | while read dir; do
-            # 获取 `assets` 文件夹上一级目录作为变量部分
-            var_name=$(dirname "${dir#qlog/src/site/img/user/}")
-            
-            # 确保目标路径存在
-            mkdir -p "github2wp/_posts/$var_name/img/user/$var_name/assets"
-            
-            # 将 `assets` 文件夹中的所有文件复制到目标路径
-            cp -r "$dir/"* "github2wp/_posts/$var_name/img/user/$var_name/assets/"
-          done
-
       - name: Commit and push
         run: |
           cd ./github2wp
