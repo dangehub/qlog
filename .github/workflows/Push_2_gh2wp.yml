@@ -41,7 +41,7 @@ jobs:
             var_name=$(basename "$dir")
             
             # 确保目标路径存在
-            mkdir -p "github2wp/_posts/$var_name/assets"
+            mkdir -p "github2wp/_posts/$var_name/"
             
             # 将文件夹中的所有文件复制到目标路径
             cp -r "$dir/"* "github2wp/_posts/$var_name/"
