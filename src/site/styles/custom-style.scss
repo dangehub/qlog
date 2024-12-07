@@ -19,3 +19,55 @@ body {
     padding: 10px;
     box-sizing: border-box;
 }
+
+/* Memos 样式 */
+.memos-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.memo {
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.memo-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
+
+.memo-time {
+    margin-right: 12px;
+}
+
+.memo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.memo-tag {
+    background: var(--background-secondary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    color: var(--text-muted);
+    transition: background-color 0.2s ease;
+}
+
+.memo-tag:hover {
+    background: var(--background-modifier-hover);
+}
+
+.memo-content {
+    line-height: 1.6;
+    word-break: break-word;
+}
