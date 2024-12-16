@@ -29,7 +29,7 @@
 
 其实静态页面发布博客的方法浩如星海，较为出名如Jekyll、Hugo、Hexo、Vuepress、Docsdify都是很成熟且有较多主题可以选择的，不过考虑到我们要发布obsidian笔记，当然需要支持obsidian的wiki链接功能，因此之后不再考虑这些没有针对obsidian优化的框架。
 
-## digital garden插件
+## Digital Garden插件
 
 此插件已上架官方市场。
 
@@ -52,7 +52,9 @@ Quartz类似digital garden，但是不支持excalidraw和dataview，但是页面
 
 Quartz也支持obsidian的常用功能，如出链、入链等。
 
-## obcsapi+对象存储
+## Obcsapi+对象存储
+
+项目地址：[kkbt0/obcsapi-go: 基于 WebDAV，S3 存储或 CouchDb 的后端 API ，Obsidian 笔记的 API](https://github.com/kkbt0/obcsapi-go)
 
 此方案来自和[和恐咖兵糖的聊天](https://www.ftls.xyz/posts/2024-12-09-hugo-obsidian-wenku/?atk_comment=155&atk_notify_key=GCFXN#:~:text=%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%A1%AE%E5%AE%9E,%E5%8F%AF%E8%83%BD%E8%BF%9B%E8%A1%8C%E4%BC%98%E5%8C%96%E3%80%82)
 
@@ -76,7 +78,7 @@ obcsapi在对象存储模式下可以把渲染好的页面放在对象存储中�
 	- todo语法不支持
 - 上次更新是7个月之前，疑似停更，支持力度更小
 
-## obcsapi-publish功能
+## Obcsapi-publish功能
 
 obcsapi自带一个简易的publish页面，可以把指定目录的下笔记暴露在公开网络上。不过这个功能我并没有成功启动，暂时先记在这里。
 
