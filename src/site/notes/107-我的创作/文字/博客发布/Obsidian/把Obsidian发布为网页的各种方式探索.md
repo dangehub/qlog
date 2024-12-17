@@ -48,7 +48,7 @@
 
 项目地址：[jackyzha0/quartz: 🌱 a fast, batteries-included static-site generator that transforms Markdown content into fully functional websites](https://github.com/jackyzha0/quartz)
 
-优势：
+优点：
 - 原生美观程度是比digital garden高
 - 原生支持i18n，如果你需要发布多言语版本的文章，这点很重要
 
@@ -97,3 +97,6 @@ obcsapi自带一个简易的publish页面，可以把指定目录的下笔记暴
 - Share Note
 - Obsius Publish
 - Friday
+- ……
+
+如果你想探索那些没有上架官方市场的插件，可以在github搜索obsidian，然后去topics里面查看，印象中前5页就有好几个发布用的项目。
