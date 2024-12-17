@@ -33,7 +33,7 @@
 
 项目地址：此插件已上架官方市场。
 
-优势：
+优点：
 - 更新勤快，后续有支持
 - 功能多样
 	- 支持导入ob主题
@@ -48,9 +48,13 @@
 
 项目地址：[jackyzha0/quartz: 🌱 a fast, batteries-included static-site generator that transforms Markdown content into fully functional websites](https://github.com/jackyzha0/quartz)
 
-Quartz类似digital garden，但是不支持excalidraw和dataview，但是页面的原生美观程度是比digital garden好的。
+优势：
+- 原生美观程度是比digital garden高
+- 原生支持i18n，如果你需要发布多言语版本的文章，这点很重要
 
-Quartz也支持obsidian的常用功能，如出链、入链等。
+缺点：
+- 不支持excalidraw
+- 不支持dataview
 
 ## Obcsapi+对象存储
 
