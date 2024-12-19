@@ -1,5 +1,5 @@
 ---
-{"title":"荒原往事","date":"2024-09-07","lastmod":"2024-09-08","creation date":"2024-09-07 09:34","modification date":"星期日 2024 九月8日 16:24:45","tags":["gardenEntry"],"categories":null,"alases":null,"dg-publish":true,"dg-home":true,"permalink":"/README/","dgPassFrontmatter":true,"noteIcon":""}
+{"title":"博客首页","date":"2024-09-07","lastmod":"2024-09-08","creation date":"2024-09-07 09:34","modification date":"星期日 2024 九月8日 16:24:45","tags":["gardenEntry"],"categories":null,"alases":null,"dg-publish":true,"dg-home":true,"permalink":"/README/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 # 十分冷淡存知己 一曲微茫度余生
@@ -32,6 +32,7 @@
 | [[107-我的创作/文字/博客发布/Obsidian/一键把excalidraw的头脑风暴输出为线性文章\|一键把excalidraw的头脑风暴输出为线性文章]]                           | 2024-09-07 |
 | [[107-我的创作/文字/博客发布/Obsidian/把Obsidian发布为网页的各种方式探索\|把Obsidian发布为网页的各种方式探索]]                                   | 2024-08-26 |
 | [[107-我的创作/文字/博客发布/Obsidian/Obsidian 实现复制时自动上传图片到图床\|Obsidian 实现复制时自动上传图片到图床]]                               | 2024-08-07 |
+| [[107-我的创作/文字/博客发布/迈向爱折腾的geek的第一步：学会提问、学会查资料\|迈向爱折腾的geek的第一步：学会提问、学会查资料]]                                    | 2024-07-18 |
 | [[107-我的创作/文字/博客发布/自托管折腾/密码管理器：从bitwarden迁移到keepass\|密码管理器：从bitwarden迁移到keepass]]                            | 2024-04-24 |
 | [[107-我的创作/文字/博客发布/自托管折腾/在wordpress通过RSS来备份任何平台的信息，打造个人媒体枢纽\|在wordpress通过RSS来备份任何平台的信息，打造个人媒体枢纽]]            | 2024-04-24 |
 
