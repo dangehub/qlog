@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+ digital-garden:
+   build: .
+   volumes:
+     - ./src:/usr/src/app/src
+     - ./package.json:/usr/src/app/package.json
+     - ./package-lock.json:/usr/src/app/package-lock.json
+   ports:
+     - "8080:8080"
+   command: npm run dev
+   environment:
+     - NODE_ENV=development
