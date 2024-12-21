@@ -1,0 +1,11 @@
+# 忽略 src/site/_includes/components/user/notes/footer/001-comment.njk 文件 
+src/site/_includes/components/user/notes/footer/001-comment.njk
+# 忽略 src/site/notes 目录及其所有内容
+src/site/notes
+
+node_modules
+
+.git
+
+.DS_Store
+
