@@ -1,11 +1,20 @@
 # 忽略 src/site/_includes/components/user/notes/footer/001-comment.njk 文件 
 src/site/_includes/components/user/notes/footer/001-comment.njk
-# 忽略 src/site/notes 目录及其所有内容
+# 忽略笔记与图片
 src/site/notes
+src/site/img/user
+
+# 构建镜像时保留的说明文件
+!src/site/notes/README.md
+!src/site/notes/notes.11tydata.js
+!src/site/notes/notes.json
 
 node_modules
-
+npm-debug.log
+Dockerfile
+dist
+.dockerignore
 .git
-
+.github
 .DS_Store
 

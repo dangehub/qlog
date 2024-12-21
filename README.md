@@ -6,7 +6,7 @@
 
 如果需要开启gisus评论系统，应该修改`src/site/_includes/components/user/notes/footer/001-comment.njk`文件，将其中的参数替换成自己的。
 
-如果需要使用docker，但不想自己构建镜像，只需要使用本仓库的`docker-compose.yml`即可。
+如果需要使用docker，但不想自己构建镜像，只需要使用本仓库的`docker-compose.yml`即可。但请确保notes目录下存在笔记，如果为空，容器启动后会报错。
 
 如果想自己在本地构建镜像，请把`Dockerfile`、`docker-compose-build.yml`与`.dockerignore`放到你的digital-garden目录下，使用命令`docker-compose up --build`来启动，不过这种方式在windows下可能会出现无法实时构建的问题，我也没找到原因。而在wsl中就不存在这个问题。
 

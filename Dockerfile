@@ -1,4 +1,5 @@
-FROM node:18 AS build
+# Stage 1: Build environment
+FROM node:18-alpine AS build
 WORKDIR /usr/src/app
 
 # Copy package files to install dependencies
@@ -14,7 +15,7 @@ COPY . .
 RUN if [ -f package.json ] && grep -q "build" package.json; then npm run build; else echo "No build step"; fi
 
 # Stage 2: Production environment
-FROM node:18-slim
+FROM node:18-alpine
 
 # Set environment variables for production
 ENV NODE_ENV=production
@@ -26,7 +27,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install only production dependencies
-RUN npm ci --only=production
+RUN npm ci --only=production && \
+    npm cache clean --force
 
 # Copy the application code and built files from the build stage
 COPY --from=build /usr/src/app .

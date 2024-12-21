@@ -2,9 +2,10 @@ version: '3.8'
 services:
  digital-garden:
    image: qudange/obsidian-digital-garden:0.0.1
-   volumes:
-     - ./src/site/_includes/components/user/notes/footer:/usr/src/app/src/site/_includes/components/user/notes/footer #启用gisus评论功能 应该填入自己的相关信息
-     - ./src/site/notes:/usr/src/app/src/site/notes #只映射笔记
+#   volumes:
+#     - ./src/site/_includes/components/user/notes/footer:/usr/src/app/src/site/_includes/components/user/notes/footer #启用gisus评论功能 应该填入自己的相关信息
+#     - ./src/site/notes:/usr/src/app/src/site/notes #映射笔记
+#     - ./src/site/img:/usr/src/app/src/site/img #映射笔记
    ports:
      - "8080:8080"
    command: npm run dev
