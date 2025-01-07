@@ -10,6 +10,9 @@
 
 当然，Obsidian 在制作 PPT 领域无法与专业软件相提并论，因此建议大家结合自己的实际需求和 Obsidian 的功能限制，选择最适合的方式进行尝试。
 
+本文配套示例库：[Release Obsidian轻量级PPT教程配套示例库 · dangehub/aqu_ob_share](https://github.com/dangehub/aqu_ob_share/releases/tag/ob-ppt)
+本文配套视频：<font color="#ff0000">待补充</font>
+
 ## 核心插件：幻灯片
 
 ### 相关资料
