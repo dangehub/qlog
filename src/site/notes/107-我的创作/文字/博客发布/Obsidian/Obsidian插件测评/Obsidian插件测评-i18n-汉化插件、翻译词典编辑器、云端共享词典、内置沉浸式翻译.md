@@ -1,5 +1,5 @@
 ---
-{"uid":20250110223123,"title":"Obsidian插件测评——i18n：汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译","tags":["obsidian插件"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250112005621,"dg-publish":true,"dg-path":"Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译.md","permalink":"/Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20250110223123,"title":"Obsidian插件测评——i18n：汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译","tags":["obsidian插件"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250112005915,"dg-publish":true,"dg-path":"Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译.md","permalink":"/Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -218,7 +218,9 @@ i18n 是 internationalization 的缩写，意为“国际化”。除此处的 i
 
 ## 不优雅但是有用，但是被官方拒绝上架甚至被插件作者要求删除译文
 
-在“插件翻译原理”那章我已经提到了优雅的软件翻译方式，i18n 的实现方式无疑是不优雅的，直接替换源代码可能会引入未知的错误。我曾经在英文社区和 Obsidian 的官方人员 joethei[^4] 以及几位优质插件的开发人员聊过此事 [^5] ，他们表示不可能接受修改插件源代码来实现翻译的方式。翻译只应该通过开发者提供的 i18n 框架实现（此处的 i18n 指国际化）。
+在“插件翻译原理”那章我已经提到了优雅的软件翻译方式，i18n 的实现方式无疑是不优雅的，直接替换源代码可能会引入未知的错误。我曾经在英文社区和 Obsidian 的官方人员 joethei[^4]
+
+以及几位优质插件的开发人员聊过此事 [^5] ，他们表示不可能接受修改插件源代码来实现翻译的方式。翻译只应该通过开发者提供的 i18n 框架实现（此处的 i18n 指国际化）。
 
 我表示理解，因为他们这是典型的程序员专业视角，他们说的没有任何错。但是期望插件开发者都有自觉去添加 i18n 框架是不现实，因为绝大部分插件开发都始于兴趣，终于热情熄灭，Obsidian 社区已经积累了 2000 余个插件，绝大部分插件没有提供 i18n 框架，现在没有，未来也不会有。
 
