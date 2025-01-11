@@ -1,5 +1,5 @@
 ---
-{"uid":20250110223123,"title":"Obsidian插件测评——i18n：汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译","tags":["obsidian插件"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250112005224,"dg-publish":true,"dg-path":"Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译.md","permalink":"/Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20250110223123,"title":"Obsidian插件测评——i18n：汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译","tags":["obsidian插件"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250112005621,"dg-publish":true,"dg-path":"Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译.md","permalink":"/Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -405,7 +405,7 @@ console.error('清理过程中出错:', error);
 
 [^1]: 这是重新调出悬浮球的代码。
 [^2]: 函数是不严谨的说法。
-[^3]: https://codebeautify.org/zlib-decompress-online
+[^3]: [Zlib Decompress Online to Zlib Decode Text](https://codebeautify.org/zlib-decompress-online)
 [4]: joethei 负责插件审查和开发生态系统，据我观察，几乎所有插件都由他审核。
 [^5]: 如果想查看此事的详细记录，可以查看 [关于这个插件无法上架的解释以及与官方人员的讨论记录obsidian-i18n · Discussion #19](https://github.com/0011000000110010/obsidian-i18n/discussions/19)
 [^6]: [允许用户翻译插件 - 功能存档 - Obsidian Forum --- Allow users to translate plugins - Feature archive - Obsidian Forum](https://forum.obsidian.md/t/allow-users-to-translate-plugins/84437/1)
