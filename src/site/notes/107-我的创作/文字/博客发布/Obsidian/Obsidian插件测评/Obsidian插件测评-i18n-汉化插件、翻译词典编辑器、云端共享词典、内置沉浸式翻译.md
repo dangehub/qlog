@@ -1,5 +1,5 @@
 ---
-{"uid":20250110223123,"title":"Obsidian插件测评——i18n：汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译","tags":["obsidian插件"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250112004232,"dg-publish":true,"dg-path":"Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译.md","permalink":"/Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20250110223123,"title":"Obsidian插件测评——i18n：汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译","tags":["obsidian插件"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250112005224,"dg-publish":true,"dg-path":"Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译.md","permalink":"/Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -218,7 +218,7 @@ i18n 是 internationalization 的缩写，意为“国际化”。除此处的 i
 
 ## 不优雅但是有用，但是被官方拒绝上架甚至被插件作者要求删除译文
 
-在“插件翻译原理”那章我已经提到了优雅的软件翻译方式，i18n 的实现方式无疑是不优雅的，直接替换源代码可能会引入未知的错误。我曾经在英文社区和 Obsidian 的官方人员 joethei[^4] 以及几位优质插件的开发人员聊过此事 [^4] ，他们表示不可能接受修改插件源代码来实现翻译的方式。翻译只应该通过开发者提供的 i18n 框架实现（此处的 i18n 指国际化）。
+在“插件翻译原理”那章我已经提到了优雅的软件翻译方式，i18n 的实现方式无疑是不优雅的，直接替换源代码可能会引入未知的错误。我曾经在英文社区和 Obsidian 的官方人员 joethei[^4] 以及几位优质插件的开发人员聊过此事 [^5] ，他们表示不可能接受修改插件源代码来实现翻译的方式。翻译只应该通过开发者提供的 i18n 框架实现（此处的 i18n 指国际化）。
 
 我表示理解，因为他们这是典型的程序员专业视角，他们说的没有任何错。但是期望插件开发者都有自觉去添加 i18n 框架是不现实，因为绝大部分插件开发都始于兴趣，终于热情熄灭，Obsidian 社区已经积累了 2000 余个插件，绝大部分插件没有提供 i18n 框架，现在没有，未来也不会有。
 
@@ -232,11 +232,11 @@ i18n 是 internationalization 的缩写，意为“国际化”。除此处的 i
 
 经过分析，可以说在这样的困境下，除了处于生态位头部的插件，其他插件只能随缘地获得国际化支持。
 
-我也给官方提了建议——*官方提供接口，要求所有 UI 文本都采用统一方式来渲染，或者要求插件作者必须引入 i18n 框架*，同样的建议我也在网上看到别人提过 [^5] ，但是 joethei 给出的回复是*他们可能会提供一些辅助函数，但是不会强制要求*。
+我也给官方提了建议——*官方提供接口，要求所有 UI 文本都采用统一方式来渲染，或者要求插件作者必须引入 i18n 框架*，同样的建议我也在网上看到别人提过 [^6] ，但是 joethei 给出的回复是*他们可能会提供一些辅助函数，但是不会强制要求*。
 
 可以说期待官方在国际化上有所作为是彻底落空了。当然我并非在此指责 Obsidian 官方，我完全能理解他们的选择，Obsidian 的商业方式注定他们只能采用小团队规模，因此国际化这种优先级更低的工作被搁置是很正常的。
 
-因为翻译插件和二次开发插件不同，翻译的插件作者署名依然是原作者，因此我们也担心会有人因为 i18n 翻译导致插件出错而去插件项目下报错，因此我们在插件运行时进行了严肃声明。即便如此，当我在 discord 发起了那场讨论后，tasks 插件的作者还是跑到插件项目地址下要求删除他的插件的译文 [^6]。这个事让我挺无语的，不过最后的发展还是好的，如果想吃瓜的可以去看原贴，此处就不再赘述。
+因为翻译插件和二次开发插件不同，翻译的插件作者署名依然是原作者，因此我们也担心会有人因为 i18n 翻译导致插件出错而去插件项目下报错，因此我们在插件运行时进行了严肃声明。即便如此，当我在 discord 发起了那场讨论后，tasks 插件的作者还是跑到插件项目地址下要求删除他的插件的译文 [^7]。这个事让我挺无语的，不过最后的发展还是好的，如果想吃瓜的可以去看原贴，此处就不再赘述。
 
 ## 插件翻译的难点
 
@@ -407,6 +407,6 @@ console.error('清理过程中出错:', error);
 [^2]: 函数是不严谨的说法。
 [^3]: https://codebeautify.org/zlib-decompress-online
 [4]: joethei 负责插件审查和开发生态系统，据我观察，几乎所有插件都由他审核。
-[^4]: 如果想查看此事的详细记录，可以查看 [关于这个插件无法上架的解释以及与官方人员的讨论记录obsidian-i18n · Discussion #19](https://github.com/0011000000110010/obsidian-i18n/discussions/19)
-[^5]: [允许用户翻译插件 - 功能存档 - Obsidian Forum --- Allow users to translate plugins - Feature archive - Obsidian Forum](https://forum.obsidian.md/t/allow-users-to-translate-plugins/84437/1)
-[^6]: [Remove all translations for obsidian-tasks-plugin - 删除所有 obsidian-tasks-plugin 的翻译文件。 · Issue #18](https://github.com/0011000000110010/obsidian-i18n/issues/18)
+[^5]: 如果想查看此事的详细记录，可以查看 [关于这个插件无法上架的解释以及与官方人员的讨论记录obsidian-i18n · Discussion #19](https://github.com/0011000000110010/obsidian-i18n/discussions/19)
+[^6]: [允许用户翻译插件 - 功能存档 - Obsidian Forum --- Allow users to translate plugins - Feature archive - Obsidian Forum](https://forum.obsidian.md/t/allow-users-to-translate-plugins/84437/1)
+[^7]: [Remove all translations for obsidian-tasks-plugin - 删除所有 obsidian-tasks-plugin 的翻译文件。 · Issue #18](https://github.com/0011000000110010/obsidian-i18n/issues/18)
