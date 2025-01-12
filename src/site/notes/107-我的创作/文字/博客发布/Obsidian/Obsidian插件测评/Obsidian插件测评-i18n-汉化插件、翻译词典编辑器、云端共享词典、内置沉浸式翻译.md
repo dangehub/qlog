@@ -1,5 +1,5 @@
 ---
-{"uid":20250110223123,"title":"Obsidian插件测评——i18n：汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译","tags":["obsidian插件"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250112184806,"dg-publish":true,"dg-path":"Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译.md","permalink":"/Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20250110223123,"title":"Obsidian插件测评——i18n：汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译","tags":["obsidian插件"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250112233751,"dg-publish":true,"dg-path":"Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译.md","permalink":"/Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -91,7 +91,7 @@ i18n 是 internationalization 的缩写，意为“国际化”。为了避免�
 
 ## 新手入门：安装插件、下载云端词典并注入
 
-### 插件安装
+### 插件安装方法一：Gitee 手动下载安装
 
 打开项目地址： [zero/obsidian-i18n-translation](https://gitee.com/zero--two/obsidian-i18n-translation) ，点击发行版下蓝色的版本号
 
@@ -106,6 +106,12 @@ i18n 是 internationalization 的缩写，意为“国际化”。为了避免�
 ![assets/Pasted image 20250111144559.png](/img/user/107-%E6%88%91%E7%9A%84%E5%88%9B%E4%BD%9C/%E6%96%87%E5%AD%97/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/Obsidian/Obsidian%E6%8F%92%E4%BB%B6%E6%B5%8B%E8%AF%84/assets/Pasted%20image%2020250111144559.png)
 
 **注**：也可以使用 brat 安装，GitHub 有同步的仓库，此方法不再赘述。
+
+### 插件安装方法二：使用 pkmer 插件市场
+
+详见 [PKMer_Obsidian 插件：PKMer 不需要魔法，完美解决 Obsidian 无法加载第三方插件](https://pkmer.cn/Pkmer-Docs/10-obsidian/obsidian%E7%A4%BE%E5%8C%BA%E6%8F%92%E4%BB%B6/pkmer-market/pkmer/)
+
+安装 pkmer 之后，搜索 `i18n ` 即可安装。
 
 ### 下载云端词典并注入
 
