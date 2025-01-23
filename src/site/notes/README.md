@@ -1,28 +1,45 @@
 ---
-{"title":"博客首页","date":"2024-09-07","lastmod":"2024-09-08","creation date":"2024-09-07 09:34","modification date":"星期日 2024 九月8日 16:24:45","tags":["gardenEntry"],"categories":null,"alases":null,"dg-publish":true,"dg-home":true,"permalink":"/README/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20241230193952,"title":"博客首页","tags":["gardenEntry"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250124003024,"date":"2024-09-07","lastmod":"2024-09-08","creation date":"2024-09-07 09:34","modification date":"星期日 2024 九月8日 16:24:45","categories":null,"alases":null,"dg-publish":true,"dg-home":true,"permalink":"/README/","dgPassFrontmatter":true,"noteIcon":""}
 ---
+
 
 # 十分冷淡存知己 一曲微茫度余生
 
 你好，欢迎来到独属于我的罅隙。
 
-我是一个重度笔记爱好者，从早期的印象笔记，到后来换用onenote、notability、goodnotes、思源笔记、为知笔记、notion、obsidian……
+我是一个重度笔记爱好者，从早期的印象笔记，到后来换用 onenote、notability、goodnotes、思源笔记、为知笔记、notion、obsidian……
 
-最后我选择长期使用obsidian，从21年到现在，也积累了上千条笔记了。我并不觉得我的笔记做的有多好，但是做笔记让我感觉快乐。
+最后我选择长期使用 obsidian，从 21 年到现在，也积累了上千条笔记了。我并不觉得我的笔记做的有多好，但是做笔记让我感觉快乐。
 
 	在探索笔记组织方式的过程中，我也产生了很多疑惑，感谢互联网上先驱者们的无私分享，因此我也在这里分享我自己的经验，如果能帮到茫茫人海中的你就最好了。
 
 > [!如果你想说点什么]
 > 本博客支持评论功能，浏览至网页最下方时懒加载（此主页除外），欢迎留言。
 
-同时我也在bilibili运营着[我的个人频道](https://space.bilibili.com/680523)，我会在这里分享我的个人知识管理总结，视频和文字是一种截然不同的体验，或许你可以来看看。
+# 在哪能找到我
+
+## 我还运营着以下平台
+
+**Bilibili**：[三花猫曲奇](https://space.bilibili.com/479855734)
+	我会在这里分享我的个人知识管理总结，视频和文字是一种截然不同的体验，或许你可以来看看。
+
+**小红书**：[曲淡歌 - 小红书](https://www.xiaohongshu.com/user/profile/677e4a0d000000000403fb35)
+
+## 联系方式
+
+**邮箱**：`wanyy314@foxmail.com`
+
+Discord：`qudange`
+
+## 个人微博
+
+Mastodon、Misskey 等兼容联邦宇宙的平台关注 `qudange@blogs.qudange.top`
 
 # 文章时间轴
 
+此时间轴用 `dataview` 自动生成：
 
-此时间轴用dataview自动生成：
-
-| 标题                                                                                                                                                         | 发布时间（从新到旧） |
+| 标题                                                                                                                                                         | 发布时间       |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | [[107-我的创作/文字/博客发布/自托管折腾/follow认证文件\|follow认证文件]]                                                                                                       | 2025-01-12 |
 | [[107-我的创作/文字/博客发布/Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译\|Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译]]                 | 2025-01-11 |
@@ -44,8 +61,8 @@
 
 { .block-language-dataview}
 
+# 本网站的实现方式
 
-# 本网站的实现方式 
+这是一个使用 obsidian-digital-garden 实现的博客，我很推荐这个插件，如果你对这种实现方式感兴趣的话，可以查看这个链接
 
-这是一个使用obsidian-digital-garden实现的博客，我很推荐这个插件，如果你对这种实现方式感兴趣的话，可以查看这个链接
 -  [数字花园 - 免费发布黑曜石笔记 --- Digital Garden - Publish Obsidian Notes For Free](https://dg-docs.ole.dev/)
