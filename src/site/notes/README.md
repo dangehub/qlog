@@ -18,6 +18,9 @@
 
 # 在哪能找到我
 
+- 使用RSS关注我的博客：[https://blog.qudange.top/feed.xml]()
+- 使用follow关注我的博客：[https://app.follow.is/share/feeds/105271225522095104]()
+
 ## 我还运营着以下平台
 
 **Bilibili**：[三花猫曲奇](https://space.bilibili.com/479855734)
