@@ -1,5 +1,5 @@
 ---
-{"uid":20250124130303,"title":"让Obsidian的光标丝滑移动","tags":["Obsidian美化","obsidian","CSS"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250124132110,"dg-publish":true,"dg-path":"Obsidian/让Obsidian的光标丝滑移动.md","permalink":"/Obsidian/让Obsidian的光标丝滑移动/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20250124130303,"title":"让Obsidian的光标丝滑移动","tags":["Obsidian美化","obsidian","CSS"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250124133146,"dg-publish":true,"dg-path":"Obsidian/让Obsidian的光标丝滑移动.md","permalink":"/Obsidian/让Obsidian的光标丝滑移动/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -21,7 +21,7 @@
 
 # 附录
 
-[^1]: 请把新建文件 `丝滑光标.css` 并粘贴上面的代码，然后把文件放入 Obsidian 的 css 文件夹中并在 Obsidian 启用
+[^1]: 新建文件 `丝滑光标.css` 并粘贴上面的代码，然后把文件放入 Obsidian 的 css 文件夹中并在 Obsidian 启用
 
 ```
 /* Customization for the Ninja Cursor */
