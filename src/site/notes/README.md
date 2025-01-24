@@ -1,5 +1,5 @@
 ---
-{"uid":20241230193952,"title":"博客首页","tags":["gardenEntry"],"description":null,"author":"曲淡歌","draft":false,"editable":false,"modified":20250124003024,"date":"2024-09-07","lastmod":"2024-09-08","creation date":"2024-09-07 09:34","modification date":"星期日 2024 九月8日 16:24:45","categories":null,"alases":null,"dg-publish":true,"dg-home":true,"permalink":"/README/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20241230193952,"title":"博客首页","dg-publish":true,"dg-home":true,"permalink":"/README/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
