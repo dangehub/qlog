@@ -1,5 +1,5 @@
 ---
-{"uid":20250104142831,"title":"Obsidian轻量级PPT教程","tags":["obsidian","PPT技巧"],"description":null,"author":"曲淡歌","type":"other","draft":false,"editable":false,"modified":20250108131351,"dg-publish":true,"dg-path":"Obsidian/Obsidian轻量级PPT教程.md","permalink":"/Obsidian/Obsidian轻量级PPT教程/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20250104142831,"title":"Obsidian轻量级PPT教程","tags":["obsidian","PPT技巧"],"description":null,"author":"曲淡歌","type":"other","draft":false,"editable":false,"modified":20250124113707,"dg-publish":true,"dg-path":"Obsidian/Obsidian轻量级PPT教程.md","permalink":"/Obsidian/Obsidian轻量级PPT教程/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -13,7 +13,7 @@
 
 本文配套示例库：[Release Obsidian轻量级PPT教程配套示例库 · dangehub/aqu_ob_share](https://github.com/dangehub/aqu_ob_share/releases/tag/ob-ppt)
 
-本文配套视频：<font color="#ff0000">待补充</font>
+本文配套视频：[如何炫酷的展示你的笔记 —— Obsidian PPT 的三种方法_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1BAcAeaEsQ/)
 
 # 核心插件：幻灯片
 
