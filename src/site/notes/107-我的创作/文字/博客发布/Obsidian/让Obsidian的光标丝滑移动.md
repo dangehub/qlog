@@ -24,54 +24,53 @@
 [^1]: 新建文件 `丝滑光标.css` 并粘贴上面的代码，然后把文件放入 Obsidian 的 css 文件夹中并在 Obsidian 启用
 
 ```
-/* Customization for the Ninja Cursor */
+/* Customization for the Ninja Cursor */ 
 .x-cursor {
-    position: inline block;
-    background: var(--caret-color); /* Sets the Ninja Cursor Colour. */
-    width: 1px; /* Sets the width of the Ninja Cursor. */
-    transition: all 120ms !important; /* Sets the animation delay of the Ninja Cursor. Fast typers should use a higher delay to maintain the effect. */
-    top: calc(0px - var(--header-height)); /* Ensures the cursor is inline with selected line. */
-    --cursor-height: calc(var(font-size) - 2px); /* Sets Ninja Cursor Height. Font-Height variable used to ensure height matches current body text input. For a taller/shorter cursor alter the px. */
-    max-height: calc(var(--font-ui-large) * 2); /* Caps the height of the Ninja Cursor to the span of two lines. Stops Ninja Cursor spanning several lines by capping it at two. It can be capped at one but the cursor is unable to change height to match headings. */
+  position: inline block;
+  background: var(--caret-color); /* Sets the Ninja Cursor Colour. */
+  width: 1px; /* Sets the width of the Ninja Cursor. */ 
+  transition: all 80ms !important; /* Sets the animation delay of the Ninja Cursor. Fast typers should use a higher delay to maintain the effect. */ 
+  top: calc(0px - var(--header-height)); /* Ensures the cursor is inline with selected line. */ 
+  --cursor-height: calc(var(font-size) - 2px); /* Sets Ninja Cursor Height. Font-Height variable used to ensure height matches current body text input. For a taller/shorter cursor alter the px. */ 
+  max-height: calc(var(--font-ui-large) * 2); /* Caps the height of the Ninja Cursor to the span of two lines. Stops Ninja Cursor spanning several lines by capping it at two. It can be capped at one but the cursor is unable to change height to match headings. */ 
 }
 
 /* Hides the Default Cursor */
 body:has(.x-cursor) * {
-    caret-color: transparent;
+  caret-color: transparent;
 }
 .cm-cursorLayer {
-    animation: none !important;
-    display: none;
+  animation: none !important;
+  display: none; 
 }
 
-/* Hides the Default Ninja Cursor Dashing Effect */
+/* Hides the Default Ninja Cursor Dashing Effect */ 
 .cursorWrapper .x-cursor::after {
-    display: none;
+  display: none;
 }
 
 /* Applies the Caret Blinking Effect */
 .cursorWrapper .x-cursor0 {
-    animation: blink0 1s 1s both infinite;
+  animation: blink0 1s 1s both infinite;
 }
 .cursorWrapper .x-cursor1 {
-    animation: blink1 1s 1s both infinite;
+  animation: blink1 1s 1s both infinite;
 }
 
-/* Keyframes for the Caret Blinking Effect */
+/* Keyframes for the Caret Blinking Effect */ 
 @keyframes blink1 {
-    0%   { opacity: 1; }
-    45%  { opacity: 1; }
-    50%  { opacity: 0.3;}
-    95%  { opacity: 0; }
-    100% { opacity: 0.3; }
+  0%   { opacity: 1; }
+  45%  { opacity: 1; }
+  50%  { opacity: 1;}
+  95%  { opacity: 1; }
+  100% { opacity: 1; }
 }
 
 @keyframes blink0 {
-    0%   { opacity: 1; }
-    45%  { opacity: 1; }
-    50%  { opacity: 0.3;}
-    95%  { opacity: 0; }
-    100% { opacity: 0.3; }
+  0%   { opacity: 1; }
+  45%  { opacity: 1; }
+  50%  { opacity: 1;}
+  95%  { opacity: 1; }
+  100% { opacity: 1; }
 }
-
 ```
