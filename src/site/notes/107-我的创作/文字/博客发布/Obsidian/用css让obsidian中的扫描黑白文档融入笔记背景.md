@@ -1,5 +1,5 @@
 ---
-{"title":"用css让obsidian中的扫描黑白文档融入笔记背景","date":"2025-01-06","lastmod":"2025-01-06","creation date":"2025-01-06 21:14","modification date":"星期一 2025 一月6日 21:18:28","categories":null,"tags":["CSS","obsidian","美化"],"alases":null,"dg-publish":true,"dg-path":"Obsidian/用css让obsidian中的扫描黑白文档融入笔记背景.md","permalink":"/Obsidian/用css让obsidian中的扫描黑白文档融入笔记背景/","dgPassFrontmatter":true,"noteIcon":""}
+{"title":"用css让obsidian中的扫描黑白文档融入笔记背景","date":"2025-01-06","lastmod":"2025-01-06","creation date":"2025-01-06 21:14","modification date":"星期一 2025 一月6日 21:18:28","categories":null,"tags":["CSS","obsidian","美化"],"alases":null,"dg-publish":true,"cssclasses":["has-scan"],"dg-path":"Obsidian/用css让obsidian中的扫描黑白文档融入笔记背景.md","permalink":"/Obsidian/用css让obsidian中的扫描黑白文档融入笔记背景/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -34,6 +34,7 @@ cssclasses: has-scan
 | 未启用效果                                       | 启用后效果                                       |
 | ------------------------------------------- | ------------------------------------------- |
 | ![assets/Pasted image 20250106211727.png](/img/user/107-%E6%88%91%E7%9A%84%E5%88%9B%E4%BD%9C/%E6%96%87%E5%AD%97/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/Obsidian/assets/Pasted%20image%2020250106211727.png) | ![assets/Pasted image 20250106211742.png](/img/user/107-%E6%88%91%E7%9A%84%E5%88%9B%E4%BD%9C/%E6%96%87%E5%AD%97/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/Obsidian/assets/Pasted%20image%2020250106211742.png) |
+|                                             |                                             |
 
 
 
