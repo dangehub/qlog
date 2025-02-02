@@ -1,5 +1,5 @@
 ---
-{"uid":20250203004253,"title":"ollama离线运行AI模型+反思翻译法+沉浸式翻译=免费又好用的翻译？最具性价比的选择！","tags":["LLM","ai","翻译","自托管","反思翻译法"],"description":null,"author":"曲淡歌","modified":20250203013757,"dg-publish":true,"dg-path":"效率工具/ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译.md","permalink":"/效率工具/ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20250203004253,"title":"ollama离线运行AI模型+反思翻译法+沉浸式翻译=免费又好用的翻译？最具性价比的选择！","tags":["LLM","ai","翻译","自托管","反思翻译法"],"description":null,"author":"曲淡歌","modified":20250203014733,"dg-publish":true,"dg-path":"效率工具/ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译.md","permalink":"/效率工具/ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -57,7 +57,9 @@ It seems to me that any uncensored LLM run locally can be used to generate illeg
 
 最后放上更多翻译工具的结果：
 
-> [!DeepL翻译]
+DeepL 翻译：
+
+> [!DeepL 翻译]
 > 英国即将禁止在本地开办法律硕士课程？
 >
 > 英国政府正在打击利用人工智能生成非法图像的行为，这当然是件好事，但从措辞上看，似乎任何一种在本地运行的人工智能工具都可以被视为非法，因为它有*可能*生成有问题的内容。以下是新闻中的一段话：
@@ -66,7 +68,9 @@ It seems to me that any uncensored LLM run locally can be used to generate illeg
 >
 > 在我看来，无论用户是否愿意，在本地运行的任何未经审查的 LLM 都可以用来生成非法内容，因此可以根据该法律进行起诉。还是我理解错了？
 
-> [!使用反思翻译法+deepseek-v3得到的翻译]
+使用反思翻译法 +deepseek-v3 得到的翻译：
+
+> [!使用反思翻译法 +deepseek-v3 得到的翻译]
 > 英国政府正在打击利用人工智能生成非法图像的行为，这当然是件好事，但措辞似乎暗示任何本地运行的 AI 工具都可能被视为非法，因为它们有*潜在*生成不良内容的可能。
 >
 > 以下是新闻中的一段引述：
@@ -75,7 +79,9 @@ It seems to me that any uncensored LLM run locally can be used to generate illeg
 >
 > 在我看来，任何未经审查的本地运行的大型语言模型都可以用来生成非法内容，无论用户是否有意为之，因此可能会根据这项法律被起诉。还是我理解错了？
 
-> [!在n8n中的AI-agent使用反思翻译法+deepseek-v3得到的翻译]
+在 n8n 中的 AI-agent 使用反思翻译法 +deepseek-v3 得到的翻译：
+
+> [!在 n8n 中的 AI-agent 使用反思翻译法 +deepseek-v3 得到的翻译]
 > 英国政府正在针对使用人工智能生成非法图像的行为进行打击，这当然是件好事，但措辞似乎暗示任何本地运行的 AI 工具都可能被视为非法，因为它们有生成可疑内容的*潜力*。以下是新闻中的一段引述：
 >
 > 内政部表示，为了更好地保护儿童，英国将成为世界上第一个将拥有、创建或分发旨在创建儿童性虐待材料（CSAM）的 AI 工具定为非法的国家，最高可判处五年监禁。他们还提到了一些关于教别人如何使用 AI 达到这些目的的手册。
