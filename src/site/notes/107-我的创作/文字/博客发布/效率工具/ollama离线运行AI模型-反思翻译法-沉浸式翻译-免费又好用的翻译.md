@@ -1,5 +1,5 @@
 ---
-{"uid":20250203004253,"title":"ollama离线运行AI模型+反思翻译法+沉浸式翻译=免费又好用的翻译？最具性价比的选择！","tags":["LLM","ai","翻译","自托管","反思翻译法"],"description":null,"author":"曲淡歌","modified":20250203014733,"dg-publish":true,"dg-path":"效率工具/ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译.md","permalink":"/效率工具/ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20250203004253,"title":"ollama离线运行AI模型+反思翻译法+沉浸式翻译=免费又好用的翻译？最具性价比的选择！","tags":["LLM","ai","翻译","自托管","反思翻译法"],"description":null,"author":"曲淡歌","modified":20250205194018,"dg-publish":true,"dg-path":"效率工具/ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译.md","permalink":"/效率工具/ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -51,7 +51,9 @@ It seems to me that any uncensored LLM run locally can be used to generate illeg
 
 ```
 
-可以看到在线的 deepseek 确实爆杀了，但是 api 是要额外花钱的，还需要时间来反应。而我使用 m1 machinebook pro 16g 跑 2b 的小模型，速度比在线 api 快一点，效果介于机翻和 api 之间。而机翻使用的太频繁也会触发限制，相比之下我用 ollama 跑一个 2b 的小模型，电脑也不卡，翻译速度也能接受，还不收费，岂不美哉？
+可以看到在线的 deepseek 确实爆杀了，但是 api 是要额外花钱的，还需要时间来反应。而在我的 mac 上跑 2b 的小模型，速度比在线 api 快一点，效果介于机翻和 api 之间。而机翻使用的太频繁也会触发限制，相比之下我用 ollama 跑一个 2b 的小模型，电脑也不卡，翻译速度也能接受，还不收费，岂不美哉？
+
+（单个网页用本地 LLM 是可以的，但是如果快速翻页 or 多个网页，本地 LLM 的速度还是不够，需要更强的配置，另外可能还要再配置一下 ollama 的同时加载模型数与单模型的并发处理数）
 
 因此我还是很推荐的这样做的。
 
