@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<title>用反思翻译法提升大语言模型的翻译质量</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script async type="module">import mermaid from"https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs"</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/plugins/autoloader/prism-autoloader.min.js" integrity="sha512-sv0slik/5O0JIPdLBCR2A3XDg/1U3WuDEheZfI/DI5n8Yqc3h5kjrnr46FGBNiUAJF7rE4LHKwQ/SoSLRKAxEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
+<script>window.addEventListener("load",(()=>{document.querySelectorAll(".callout").forEach((e=>{const t=getComputedStyle(e).getPropertyValue("--callout-icon"),l=t&&t.trim().replace(/^lucide-/,"");if(l){const t=e.querySelector(".callout-title");if(t){const e=document.createElement("div"),c=document.createElement("i");e.appendChild(c),c.setAttribute("icon-name",l),e.setAttribute("class","callout-icon"),t.insertBefore(e,t.firstChild)}}})),lucide.createIcons(),Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((e=>{e.querySelector(".callout-title").addEventListener("click",(t=>{e.classList.contains("is-collapsed")?e.classList.remove("is-collapsed"):e.classList.add("is-collapsed")}))}))}))</script>
+<script async src="https://fastly.jsdelivr.net/npm/force-graph@1.43.0/dist/force-graph.min.js"></script>
+<script async src="https://fastly.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/cdn.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js" async></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-okaidia.min.css" integrity="sha512-mIs9kKbaw6JZFfSuo+MovjU+Ntggfoj8RwAmJbVXQ5mkAX5LlgETQEweFPI18humSPHymTb5iikEOKWF7I8ncQ==" crossorigin="anonymous" referrerpolicy="no-referrer" async>
+<script src="https://fastly.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async></script>
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
+<link href="/styles/obsidian-base.css" rel="stylesheet">
+<link href="/styles/_theme.7962c78d.css" rel="stylesheet">
+<link href="/styles/custom-style.css" rel="stylesheet">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<style></style>
+<style></style>
+</head>
+<body class="theme-light markdown-preview-view markdown-rendered markdown-preview-section title-note-icon filetree-note-icon links-note-icon css-settings-manager mod-windows is-frameless is-hidden-frameless obsidian-app theme-light show-inline-title show-ribbon show-view-header css-settings-manager zoom-plugin-bls-zoom float-curves-outline-style status-bar-autohide Ribbon-autohide new-tab-btn-default new-tab-image-default canvas-card-menu-center theme-light-background-default mod-left-split-background-primary-light mod-right-split-background-primary-light mod-root-split-background-primary-light background-underlying-default-light activated-file-default-light theme-dark-background-default mod-left-split-background-primary-dark mod-right-split-background-primary-dark mod-root-split-background-primary-dark background-underlying-default-dark activated-file-default-dark inline-title-color-default h1-color-default h2-color-default h3-color-default h4-color-default h5-color-default h6-color-default table-width-default codeblock-style-customize callout-style-customize DB-table-bg-color-default Projects-bg-color-default ptm-dim-unfocused ptm-dim-table-as-one ptm-dim-unfocused-pause-while-scrolling ptm-dim-unfocused-pause-while-selecting ptm-plugin-activated ptm-typewriter-scroll ptm-announce-updates is-focused">
+<div x-init="isDesktop = (window.innerWidth>=1400) ? true: false;" x-on:resize.window="isDesktop = (window.innerWidth>=1400) ? true : false;" x-data="{isDesktop: true, showFilesMobile: false}">
+<div x-show.important="!isDesktop" style="display:none">
+<nav class="navbar">
+<div class="navbar-inner">
+<span style="font-size:1.5rem;margin-right:10px" @click="showFilesMobile=!showFilesMobile"><i icon-name="menu"></i></span>
+<a href="/" style="text-decoration:none">
+<h1 style="margin:15px!important">阿曲的荒原</h1>
+</a>
+</div>
+<div class="search-button align-icon" onclick="toggleSearch()">
+<span class="search-icon">
+<i icon-name="search"></i>
+</span>
+<span class="search-text">
+<span>Search</span>
+<span style="font-size:.6rem;padding:2px 2px 0 6px;text-align:center;transform:translateY(4px)" class="search-keys">
+CTRL + K
+</span>
+</span>
+</div>
+</nav>
+</div>
+<div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none" class="fullpage-overlay"></div>
+<nav class="filetree-sidebar" x-show.important="isDesktop || showFilesMobile" style="display:none">
+<a href="/" style="text-decoration:none">
+<h1 style="text-align:center">阿曲的荒原</h1>
+</a>
+<div style="display:flex;justify-content:center">
+<div class="search-button align-icon" onclick="toggleSearch()">
+<span class="search-icon">
+<i icon-name="search"></i>
+</span>
+<span class="search-text">
+<span>Search</span>
+<span style="font-size:.6rem;padding:2px 2px 0 6px;text-align:center;transform:translateY(4px)" class="search-keys">
+CTRL + K
+</span>
+</span>
+</div>
+</div>
+<div class="folder" x-data="{isOpen: true}">
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('AI')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">AI</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/AI/用n8n实现反思翻译/">用 n8n 实现反思翻译 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink active-note"><a data-note-icon="" style="text-decoration:none" class="filename" href="/AI/用反思翻译法提升大语言模型的翻译质量/">用反思翻译法提升大语言模型的翻译质量 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Obsidian')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Obsidian</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('Obsidian/Obsidian插件测评')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">Obsidian插件测评</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/Obsidian插件测评/Obsidian插件测评-BetterPluginsManager-插件分组、标签管理，插件备注，延迟启动/">Obsidian插件测评——BetterPluginsManager：插件分组、标签管理，插件备注，延迟启动 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译/">Obsidian插件测评——i18n：汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/Anyblock插件入门/">Anyblock插件入门 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/Obsidian实现复制时自动上传图片到图床/">Obsidian 实现复制时自动上传图片到图床 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/Obsidian技巧之用maoxian插件剪藏网络文章，同时把图片下载到本地/">Obsidian技巧之用maoxian插件剪藏网络文章，同时把图片下载到本地 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/Obsidian轻量级PPT教程/">Obsidian轻量级PPT教程 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/Thino与Mac软件popclip联动-实现系统级全局划词摘录/">Thino与Mac软件popclip联动，实现系统级全局划词摘录 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/一键把excalidraw的头脑风暴输出为线性文章/">发散性思考与线性输出 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/在移动端设备上管理Obsidian待办的方法探讨/">在移动端设备上管理Obsidian待办和备忘的方法探讨 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/我维护了一个obsidian示例库，分享了我的obsidian工作流/">我维护了一个obsidian示例库，分享了我的obsidian工作流 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/把Obsidian发布为网页的各种方式探索/">把Obsidian发布为网页的各种方式探索 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/用css让obsidian中的扫描黑白文档融入笔记背景/">用css让obsidian中的扫描黑白文档融入笔记背景 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/Obsidian/让Obsidian的光标丝滑移动/">让Obsidian的光标丝滑移动 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('多媒体制作')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">多媒体制作</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/多媒体制作/口播剪辑工作流探索/">口播剪辑工作流探索 </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('效率工具')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">效率工具</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/效率工具/ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译/">ollama离线运行AI模型+反思翻译法+沉浸式翻译=免费又好用的翻译？最具性价比的选择！ </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div class="folder inner-folder" x-data="{isOpen: $persist(false).as('自托管折腾')}" @click.stop="isOpen=!isOpen">
+<div class="foldername-wrapper align-icon">
+<i x-show="isOpen" style="display:none" icon-name="chevron-down"></i>
+<i x-show="!isOpen" icon-name="chevron-right"></i>
+<span class="foldername">自托管折腾</span>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/自托管折腾/follow认证文件/">follow认证文件 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/自托管折腾/在wordpress通过RSS来备份任何平台的信息，打造个人媒体枢纽/">在wordpress通过RSS来备份任何平台的信息，打造个人媒体枢纽 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="filelist">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/自托管折腾/密码管理器：从bitwarden迁移到keepass/">密码管理器：从bitwarden迁移到keepass </a>
+</div>
+</div>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/">博客首页 </a>
+</div>
+</div>
+<div x-show="isOpen" style="display:none" class="">
+<div @click.stop class="notelink"><a data-note-icon="" style="text-decoration:none" class="filename" href="/迈向爱折腾的geek的第一步——学会提问、学会查资料/">迈向爱折腾的geek的第一步：学会提问、学会查资料 </a>
+</div>
+</div>
+</div>
+</nav>
+</div>
+<div class="search-container" id="globalsearch" onclick="toggleSearch()">
+<div class="search-box">
+<input type="search" id="term" placeholder="Start typing...">
+<div id="search-results"></div>
+<footer class="search-box-footer">
+<div class="navigation-hint">
+<span>Enter to select</span>
+</div>
+<div class="navigation-hint align-icon">
+<i icon-name="arrow-up" aria-hidden="true"></i>
+<i icon-name="arrow-down" aria-hidden="true"></i>
+<span>to navigate</span>
+</div>
+<div class="navigation-hint">
+<span>ESC to close</span>
+</div>
+</footer>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/flexsearch@0.7.21/dist/flexsearch.bundle.js"></script>
+<script>document.addEventListener("DOMContentLoaded",init,!1),document.addEventListener("DOMContentLoaded",setCorrectShortcut,!1),window.toggleSearch=function(){document.getElementById("globalsearch").classList.contains("active")?document.getElementById("globalsearch").classList.remove("active"):(document.getElementById("globalsearch").classList.add("active"),document.getElementById("term").focus())},window.toggleTagSearch=function(e){console.log(e.textContent);const t=e.textContent;t&&(window.document.getElementById("term").value=t.trim(),window.toggleSearch(),window.search())};const loadingSvg='\n    <svg width="100" height="100" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">\n      <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">\n          <circle cx="22" cy="22" r="6" stroke-opacity="0">\n              <animate attributeName="r"\n                   begin="1.5s" dur="3s"\n                   values="6;22"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-opacity"\n                   begin="1.5s" dur="3s"\n                   values="1;0" calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-width"\n                   begin="1.5s" dur="3s"\n                   values="2;0" calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n          <circle cx="22" cy="22" r="6" stroke-opacity="0">\n              <animate attributeName="r"\n                   begin="3s" dur="3s"\n                   values="6;22"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-opacity"\n                   begin="3s" dur="3s"\n                   values="1;0" calcMode="linear"\n                   repeatCount="indefinite" />\n              <animate attributeName="stroke-width"\n                   begin="3s" dur="3s"\n                   values="2;0" calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n          <circle cx="22" cy="22" r="8">\n              <animate attributeName="r"\n                   begin="0s" dur="1.5s"\n                   values="6;1;2;3;4;5;6"\n                   calcMode="linear"\n                   repeatCount="indefinite" />\n          </circle>\n      </g>\n  </svg>';function debounce(e,t,n){var a;return function(){var r=this,i=arguments,c=n&&!a;clearTimeout(a),a=setTimeout((function(){a=null,n||e.apply(r,i)}),t),c&&e.apply(r,i)}}function setCorrectShortcut(){navigator.platform.toUpperCase().indexOf("MAC")>=0&&document.querySelectorAll(".search-keys").forEach((e=>e.innerHTML="⌘ + K"))}function createIndex(e){const t=e=>e.toLowerCase().split(/([^a-z]|[^\x00-\x7F])/),n=new FlexSearch.Document({cache:!0,charset:"latin:extra",optimize:!0,index:[{field:"content",tokenize:"reverse",encode:t},{field:"title",tokenize:"forward",encode:t},{field:"tags",tokenize:"forward",encode:t}]});return e.forEach(((e,t)=>{n.add({id:t,title:e.title,content:e.content,tags:e.tags})})),n}async function init(){let e=!0;if(localStorage.getItem("searchIndex")){let{date:t,docs:n}=JSON.parse(localStorage.getItem("searchIndex"));if("2025-02-07T16:44:49.435Z"===t){e=!1;let t=createIndex(n);window.docs=n,window.index=t}}if(e){let e=await(await fetch("/searchIndex.json?v=2025-02-07T16:44:49.435Z")).json(),t=createIndex(e);localStorage.setItem("searchIndex",JSON.stringify({date:"2025-02-07T16:44:49.435Z",docs:e})),window.docs=e,window.index=t}document.addEventListener("keydown",(e=>{if((e.ctrlKey||e.metaKey)&&"k"===e.key&&(e.preventDefault(),toggleSearch()),"Escape"===e.key&&document.getElementById("globalsearch").classList.remove("active"),document.getElementById("globalsearch").classList.contains("active")){if("ArrowDown"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t?(t.classList.remove("active"),t.nextElementSibling?t.nextElementSibling.classList.add("active"):document.querySelector(".searchresult").classList.add("active")):document.querySelector(".searchresult").classList.add("active");let n=document.querySelector(".searchresult.active");n&&n.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}if("ArrowUp"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t?(t.classList.remove("active"),t.previousElementSibling?t.previousElementSibling.classList.add("active"):document.querySelectorAll(".searchresult").forEach((e=>{e.nextElementSibling||e.classList.add("active")}))):document.querySelectorAll(".searchresult").forEach((e=>{e.nextElementSibling&&e.classList.add("active")}));let n=document.querySelector(".searchresult.active");n&&n.scrollIntoView({behavior:"smooth",block:"nearest",inline:"start"})}if("Enter"===e.key){e.preventDefault();let t=document.querySelector(".searchresult.active");t&&(window.location.href=t.querySelector("a").href)}}}));const t=debounce(search,200,!1);field=document.querySelector("#term"),field.addEventListener("keydown",(e=>{"ArrowDown"!==e.key&&"ArrowUp"!==e.key&&t()})),resultsDiv=document.querySelector("#search-results");const n=new URL(location.href).searchParams;n.get("q")&&(field.setAttribute("value",n.get("q")),toggleSearch(),search())}async function search(){let e=field.value.trim();if(!e)return;if(e==lastSearch)return;console.log(`search for ${e}`),window.lastSearch=e,resultsDiv.innerHTML=loadingSvg;let t=offlineSearch(e),n="";if(!t.length){let t=document.createElement("p");return t.innerText=`No results for "${e}"`,resultsDiv.innerHTML="",void resultsDiv.appendChild(t)}n+='<div style="max-width:100%;">',t.forEach((e=>{e.tags&&e.tags.length>0?n+=`<div class="searchresult">\n                    <a class="search-link" href="${e.url}">${e.title}</a>\n                    <div onclick="window.location='${e.url}'">\n                        <div class="header-meta">\n                            <div class="header-tags">\n                                ${e.tags.map((e=>'<a class="tag" href="JavaScript:Void(0);">#'+e+"</a>")).join("")}\n                            </div>\n                        </div>\n                        ${e.content}\n                    </div>\n                </div>`:n+=`<div class="searchresult">\n                    <a class="search-link" href="${e.url}">${e.title}</a>\n                    <div onclick="window.location='${e.url}'">\n                        ${e.content}\n                    </div>\n                </div>`})),n+="</div>",resultsDiv.innerHTML=n}function truncate(e,t){return(e=e.replaceAll(/<[^>]*>/g,"")).length<t?e:e.substring(0,t-3)+"..."}function offlineSearch(e){let t=window.docs,n="#"===e[0]&&e.length>1?index.search(e.substring(1),[{field:"tags"}]):index.search(e,[{field:"title",limit:5},{field:"content",weight:10}]);const a=e=>{const t=n.filter((t=>t.field===e));return 0===t.length?[]:[...t[0].result]};return[...new Set([...a("title"),...a("content"),...a("tags")])].map((e=>{let n=t[e];return n.content=truncate(n.content,400),n.tags=n.tags.filter((e=>"gardenEntry"!=e&&"note"!=e)),n}))}window.lastSearch=""</script>
+<main class="content cm-s-obsidian">
+<header>
+<h1 data-note-icon="">用反思翻译法提升大语言模型的翻译质量</h1>
+<div class="header-meta">
+<div class="header-tags">
+<a class="tag" onclick="toggleTagSearch(this)">
+#反思翻译法
+</a>
+<a class="tag" onclick="toggleTagSearch(this)">
+#大语言模型
+</a>
+<a class="tag" onclick="toggleTagSearch(this)">
+#LLM
+</a>
+<a class="tag" onclick="toggleTagSearch(this)">
+#ai
+</a>
+<a class="tag" onclick="toggleTagSearch(this)">
+#翻译
+</a>
+</div>
+<div class="timestamps"></div></div>
+</header>
+<h1 id="前言" tabindex="-1">前言</h1>
+<p>反思翻译法，又称三步翻译法、多轮翻译法，总之就是让大语言模型（LLM）以上次翻译的结果与原文对照，得出修改建议，再结合建议再次进行翻译，这样往往能获得更好的翻译效果。</p>
+<p>反思翻译法的本质就是大语言模型智能体（LLM-agent），是负反馈调节与自动化。文绉绉的历史发展与理论部分见 <a class="internal-link" target="" data-note-icon="" href="/AI/用反思翻译法提升大语言模型的翻译质量/#综述">综述</a> 部分。</p>
+<h1 id="效果展示" tabindex="-1">效果展示</h1>
+<p>下面我将提供 7 份翻译，请你选择翻译的最好的 2 个选项。</p>
+<p><img src="/img/user/101-%E6%97%A5%E8%AE%B0/assets/48490.jpeg" alt="assets/48490.jpeg"></p>
+<div class="callout" data-callout="5" data-callout-metadata=" 号翻译"><div class="callout-title"><div class="callout-title-inner">5</div></div>
+<div class="callout-content">
+<p>
+英国即将禁止在本地开办法律硕士课程？</p>
+<p>英国政府正在打击利用人工智能生成非法图像的行为，这当然是件好事，但从措辞上看，似乎任何一种在本地运行的人工智能工具都可以被视为非法，因为它有<em>可能</em>生成有问题的内容。以下是新闻中的一段话：</p>
+<p>“内政部表示，为了更好地保护儿童，英国将成为世界上第一个规定拥有、创建或分发旨在创建儿童性虐待材料（CSAM）的人工智能工具为非法的国家，最高可判处五年监禁。” 他们还提到了一些关于教他人如何为这些目的使用人工智能的手册。</p>
+<p>在我看来，无论用户是否愿意，在本地运行的任何未经审查的 LLM 都可以用来生成非法内容，因此可以根据该法律进行起诉。还是我理解错了？</p>
+</div></div>
+<div class="callout" data-callout="6" data-callout-metadata=" 号翻译"><div class="callout-title"><div class="callout-title-inner">6</div></div>
+<div class="callout-content">
+<p>
+英国政府正在打击利用人工智能生成非法图像的行为，这当然是件好事，但措辞似乎暗示任何本地运行的 AI 工具都可能被视为非法，因为它们有<em>潜在</em>生成不良内容的可能。</p>
+<p>以下是新闻中的一段引述：</p>
+<p>“内政部表示，为了更好地保护儿童，英国将成为世界上第一个将拥有、创建或分发旨在制作儿童性虐待材料（CSAM）的 AI 工具定为非法的国家，最高可判处五年监禁。”他们还提到了一些关于教别人如何使用 AI 进行这些目的的指南。</p>
+<p>在我看来，任何未经审查的本地运行的大型语言模型都可以用来生成非法内容，无论用户是否有意为之，因此可能会根据这项法律被起诉。还是我理解错了？</p>
+</div></div>
+<div class="callout" data-callout="7" data-callout-metadata=" 号翻译"><div class="callout-title"><div class="callout-title-inner">7</div></div>
+<div class="callout-content">
+<p>
+英国政府正在针对使用人工智能生成非法图像的行为进行打击，这当然是件好事，但措辞似乎暗示任何本地运行的 AI 工具都可能被视为非法，因为它们有生成可疑内容的<em>潜力</em>。以下是新闻中的一段引述：</p>
+<p>内政部表示，为了更好地保护儿童，英国将成为世界上第一个将拥有、创建或分发旨在创建儿童性虐待材料（CSAM）的 AI 工具定为非法的国家，最高可判处五年监禁。他们还提到了一些关于教别人如何使用 AI 达到这些目的的手册。</p>
+<p>在我看来，任何本地运行的未经审查的大型语言模型（LLM）都可能被用来生成非法内容，无论用户是否有意，因此可能会根据这项法律被起诉。或者我理解错了？</p>
+</div></div>
+<p>下面揭晓谜底，1-7 号翻译来源依次为：</p>
+<ol>
+<li>微软翻译</li>
+<li>google 翻译</li>
+<li>gemma2:2b 使用沉浸式翻译</li>
+<li>deepseek-v3 使用沉浸式翻译</li>
+<li>deepL 翻译</li>
+<li>反思翻译法 +deepseek-v3（单次 prompt）</li>
+<li>反思翻译 +deepseek-v3 （langchain）</li>
+</ol>
+<p>我邀请了几名群友进行盲测，他们分别选择了 37，64，36。因为翻译与评价的样本量太小，不具备统计学意义，但也能感受到 LLM 在翻译领域的优势。</p>
+<p>多说无益，让我们看看如何用上反思翻译法吧。</p>
+<h1 id="实现方法" tabindex="-1">实现方法</h1>
+<h2 id="prompt" tabindex="-1">单次 prompt 实现</h2>
+<p>“单次 prompt 实现”是我自创的一个词，它强调以下几点：</p>
+<ol>
+<li>
+<p>单轮推理（Single-turn Inference）<br>
+这是最基础的形式，即 LLM 直接基于一个 prompt 进行回答，没有额外的上下文记忆或复杂逻辑。例如：</p>
+<p>输入：&quot;请解释量子纠缠的概念。&quot;<br>
+输出：&quot;量子纠缠是指两个或多个粒子之间存在的一种特殊的量子关联......&quot;</p>
+</li>
+<li>
+<p>端到端推理（End-to-End Inference）<br>
+这个概念强调的是模型一次性完成整个任务，而不是拆解成多个步骤。例如：</p>
+<p>输入：&quot;帮我写一封道歉信，主题是迟到。&quot;<br>
+输出：&quot;亲爱的 XXX，很抱歉我今天迟到了......&quot;</p>
+</li>
+<li>
+<p>零样本学习（Zero-shot Learning）/ 一次性推理<br>
+指的是 LLM 直接处理任务，而不需要提供示例。例如：</p>
+<p>输入：&quot;将 'I love programming' 翻译成法语。&quot;<br>
+输出：&quot;J'aime la programmation.&quot;</p>
+</li>
+<li>
+<p>提示工程（Prompt Engineering）<br>
+在单个 prompt 中优化提示词的方式，使得 LLM 能够高效输出正确结果。例如：</p>
+<p>输入：&quot;用简单易懂的方式解释黑洞。&quot;<br>
+输出：&quot;黑洞是一个引力极强的天体，连光都无法逃脱......&quot;</p>
+</li>
+</ol>
+<p>相对而言，LangChain 的多步骤任务涉及 Memory（记忆）、Chains（链式推理）、Agents（智能体决策）等，而单个 prompt 的任务一般就是一次性完成，无需分步执行。</p>
+<h3 id="bob" tabindex="-1">bob</h3>
+<p><code>bob</code> 是 macos 上的一款划词翻译软件。</p>
+<p>安装 <a href="https://github.com/openai-translator/bob-plugin-openai-translator" target="_blank" class="external-link">bob-plugin-openai-translator</a> 插件，然后参考如下配置：</p>
+<p><strong>系统指令</strong>：</p>
+<pre><code>现在我要写一个将$sourceLang翻译成$targetLang的GPT，请参照以下Prompt制作：
+
+
+## 角色
+你是一位经验丰富的同声翻译大师，擅长以日常口语风格翻译。请你帮我准确且通俗地将以下$sourceLang翻译成$targetLang，风格与$targetLang日常口语保持一致。
+
+
+## 规则：
+- 输入格式为 Markdown 格式，输出格式也必须保留原始 Markdown 格式
+	•	只输出意译的结果，其他内容不需要返回给用户
+- 以下是常见的相关术语词汇对应表（中文 -&gt; English）：
+* 零样本 -&gt; Zero-shot
+* 少样本 -&gt; Few-shot
+
+## 策略：
+
+分三步进行翻译工作，但请你只打印第三步的结果，并且不要包含“## 意译”标题（即只输出反思翻译后的译文）：
+12. 根据$sourceLang内容直译成$targetLang，保持原有格式，不要遗漏任何信息
+
+13. 根据第一步直译的结果，指出其中存在的具体问题，要准确描述，不宜笼统的表示，也不需要增加原文不存在的内容或格式，包括不仅限于：
+- 不符合$targetLang表达习惯，明确指出不符合的地方
+
+- 语句不通顺，指出位置，不需要给出修改意见，意译时修复
+- 晦涩难懂，模棱两可，不易理解，可以尝试给出解释
+14. 根据第一步直译的结果和第二步指出的问题，重新进行意译，保证内容的原意的基础上，使其更易于理解，更符合$targetLang日常用语的表达习惯，同时保持原有的格式不变
+</code></pre>
+<p><strong>用户指令</strong>：</p>
+<pre><code>$text
+</code></pre>
+<p><strong>设置页面截图</strong>：</p>
+<p><img src="/img/user/107-%E6%88%91%E7%9A%84%E5%88%9B%E4%BD%9C/%E6%96%87%E5%AD%97/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/%E5%A4%9A%E5%AA%92%E4%BD%93%E5%88%B6%E4%BD%9C/assets/20596.png" alt="assets/20596.png"></p>
+<h3 id="浏览器插件：划词翻译" tabindex="-1">浏览器插件：划词翻译</h3>
+<p>如果你不想使用 bob，并且只是在浏览器中使用划词翻译，你可以使用 <a href="https://hcfy.ai/" target="_blank" class="external-link">划词翻译</a> 插件</p>
+<p>根据上面的 prompt，把里面的变量替换为划词翻译规定的变量。</p>
+<div class="callout" data-callout data-callout-metadata="划词翻译变量"><div class="callout-title"><div class="callout-title-inner"></div></div>
+<div class="callout-content">
+<p>
+{{text}} 会被替换为你划选 / 输入的文本。此参数必须要包含进翻译命令中<br>
+{{target}} 会被替换为目标语种，例如”中文 (简体)”</p>
+</div></div>
+<h3 id="沉浸式翻译" tabindex="-1">沉浸式翻译</h3>
+<p>无需自行配置，打开沉浸式翻译设置 -【AI 专家】-【意译大师】，在使用 LLM 类翻译服务（不想折腾的可以用免费的智谱 GLM 翻译）时选择意译大师即可。</p>
+<ol>
+<li><img src="/img/user/107-%E6%88%91%E7%9A%84%E5%88%9B%E4%BD%9C/%E6%96%87%E5%AD%97/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/%E5%A4%9A%E5%AA%92%E4%BD%93%E5%88%B6%E4%BD%9C/assets/31484.png" alt="assets/31484.png"></li>
+<li><img src="/img/user/107-%E6%88%91%E7%9A%84%E5%88%9B%E4%BD%9C/%E6%96%87%E5%AD%97/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/%E5%A4%9A%E5%AA%92%E4%BD%93%E5%88%B6%E4%BD%9C/assets/45846.png" alt="assets/45846.png"></li>
+</ol>
+<h2 id="langchain" tabindex="-1">langchain 实现</h2>
+<p>“langchain 实现”与上述的“单次 prompt”相对应，看上去似乎只是把“与 LLM 沟通”这个行为从一次询问变成了多次询问，但是在使用类似的 prompt 的前提下，我发现 langchain 实现的效果往往比单次 prompt 的好。这可能与 LLM 的上下文注意力机制等因素相关，这里我们不作讨论。</p>
+<h3 id="fastgpt" tabindex="-1">fastgpt</h3>
+<p>fastgpt 是一个开源的低代码自动化工具，他们的工程师写了一篇的文章，详细讲解了反思翻译法的具体实现步骤，我建议直接阅读此文：<a href="https://doc.fastgpt.cn/docs/use-cases/app-cases/multi_turn_translation_bot/" target="_blank" class="external-link">多轮翻译机器人 | FastGPT</a>。</p>
+<h3 id="defy" tabindex="-1">defy</h3>
+<p>defy 类似 fastgpt，功能大同小异。</p>
+<h3 id="n8n" tabindex="-1">n8n</h3>
+<p>n8n 是一个开源的低代码自动化工具，相比与 fastgpt 与 defy 那种专注于 LLM 的自动化工具，n8n 追求的更全面。与它类似的，举一个国人更耳熟能详的例子，就是影刀 RPA。</p>
+<p>n8n 是众多开源的低代码平台中，免费版限制最少的那个，因此我比较推荐使用它。</p>
+<p>如果你对具体实现感兴趣，可以看我的这篇文章：<a class="internal-link" target="" data-note-icon="" href="/AI/用n8n实现反思翻译/">用n8n实现反思翻译</a></p>
+<h4 id="n8n-1" tabindex="-1">n8n+ 划词翻译</h4>
+<p>如果你想在划词翻译中使用 langchain 实现的反思翻译，可以在 n8n 中模拟 openai 格式的 api 或者采用 <a href="https://hcfy.ai/docs/services/custom-api" target="_blank" class="external-link">划词翻译自定义翻译源格式的api</a>。</p>
+<p>我把我自己制作的两个 n8n 流程分享到 GitHub 了，导入后配置 LLM 地址就好，我默认使用的 deepseek。</p>
+<p>分享工作流文件：</p>
+<ol>
+<li><a href="https://gist.github.com/dangehub/95dfa0c934165cd0af199f683490a123" target="_blank" class="external-link">openai格式</a></li>
+<li><a href="https://gist.github.com/dangehub/08da7d942d702153ed3b2f6854fbeba9" target="_blank" class="external-link">划词翻译自定义格式</a></li>
+</ol>
+<h1 id="综述" tabindex="-1">综述</h1>
+<h2 id="学术界的相关研究成果" tabindex="-1">学术界的相关研究成果</h2>
+<h3 id="translation-agent" tabindex="-1">吴恩达团队开源的翻译智能体 Translation-agent</h3>
+<p><strong>项目地址</strong>： <a href="https://github.com/andrewyng/translation-agent" target="_blank" class="external-link">andrewyng/translation-agent</a></p>
+<h3 id="哈工大与鹏城实验室的论文" tabindex="-1">哈工大与鹏城实验室的论文</h3>
+<p>在查资料的时候找到一篇论文 <a href="https://aclanthology.org/2024.acl-short.64.pdf" target="_blank" class="external-link">DUAL-REFLECT: Enhancing Large Language Models for Reflective Translation through Dual Learning Feedback Mechanisms</a>，在反思翻译法的基础上增加了 <code>回译</code> 的步骤，下面是我用 chatgpt 生成的论文总结。</p>
+<div class="callout" data-callout="note"><div class="callout-title"><div class="callout-title-inner">Note</div></div>
+<div class="callout-content">
+<p>
+</p><h1 id="dual-reflect" tabindex="-1">论文总结 ：DUAL-REFLECT：基于双向学习反馈机制增强大语言模型的反思性翻译能力</h1>
+<h1 id="论文背景" tabindex="-1">论文背景</h1>
+<p></p><p>近年来，大语言模型（LLMs）在机器翻译领域表现突出，尤其是通过自我反思（self-reflection）来改进翻译质量。然而，现有的反思机制存在反馈信息不足的问题，导致翻译质量提升有限。为此，本文提出 DUAL-REFLECT 框架，该框架利用 双向学习（dual learning） 机制提供有效反馈，从而增强 LLMs 的自我反思能力，提高翻译质量，特别是在低资源语言翻译任务中的表现。</p>
+<h1 id="dual-reflect-1" tabindex="-1">DUAL-REFLECT 方法</h1>
+<p>DUAL-REFLECT 由 五个关键阶段 组成：</p>
+<ol>
+<li>初稿翻译（Draft Translation）： LLM 生成初始翻译。</li>
+<li>回译（Back Translation）： LLM 将目标语言翻译回源语言。</li>
+<li>过程评估（Process Assessment）： 评估回译结果是否与源文本一致，决定是否进入下一步反思。</li>
+<li>双向反思（Dual Reflection）： LLM 比较回译结果与原始文本的差异，并分析改进建议。</li>
+<li>自动修正（Auto Revision）： 结合反思反馈，对初稿翻译进行优化。</li>
+</ol>
+<h1 id="实验与评估" tabindex="-1">实验与评估</h1>
+<ul>
+<li>数据集： 使用 WMT22、WMT23 以及 Commonsense Reasoning MT 数据集进行评测。</li>
+<li>对比方法： 包括 ChatGPT、GPT-4、Self-Reflect、MAPS 和 MAD 等现有方法。</li>
+<li>评测指标： 采用 COMET 和 BLEURT 自动评价指标，以及人工评测。</li>
+</ul>
+<p>实验结果表明：</p>
+<ol>
+<li>在 WMT22 和 Commonsense MT 基准测试中，DUAL-REFLECT 在 多个语言对上均取得最佳成绩，相比 ChatGPT 平均提升 +1.18 COMET，相比 Self-Reflect 提升 +0.75 COMET。</li>
+<li>在 低资源语言对（如 Cs→Uk） 上，DUAL-REFLECT 超越 ChatGPT +2.2 COMET，超越 MAPS +1.4 COMET，表明该方法在低资源环境下的优越性。</li>
+<li>在 常识推理翻译任务 中，DUAL-REFLECT 超越 GPT-4，展现了更强的逻辑推理能力。</li>
+<li>人工评测结果 进一步表明，DUAL-REFLECT 在 消除翻译歧义 方面表现更优。</li>
+</ol>
+<h1 id="结论" tabindex="-1">结论</h1>
+<p>本文提出的 DUAL-REFLECT 框架 通过 双向学习反馈机制，增强 LLMs 的自我反思能力，从而提高翻译质量。该方法在不同资源条件下均表现良好，特别是在低资源语言翻译和常识推理翻译方面超越现有方法。实验和人工评测均证明了该方法的有效性。</p>
+<h2 id="局限性" tabindex="-1">局限性</h2>
+<ol>
+<li>计算资源需求高： 由于涉及多轮回译和反思修正，该方法计算开销较大。</li>
+<li>依赖回译质量： 若回译质量较差，反思机制可能会受限，影响最终翻译质量。</li>
+</ol>
+<h2 id="贡献" tabindex="-1">贡献</h2>
+<p>DUAL-REFLECT 通过引入 双向学习机制，为机器翻译提供了更强的自我优化能力，尤其适用于 低资源语言翻译和复杂推理任务，对未来 LLMs 在翻译领域的应用具有重要意义。</p>
+</div></div>
+<h1 id="关联笔记" tabindex="-1">关联笔记</h1>
+<ul>
+<li><a class="internal-link is-unresolved" href="/404" target="">LLM翻译长字幕</a></li>
+<li><a class="internal-link is-unresolved" href="/404" target="">用fastgpt实现三步翻译</a></li>
+<li><a class="internal-link" target="" data-note-icon="" href="/AI/用n8n实现反思翻译/">用n8n实现反思翻译</a></li>
+<li><a href="https://doc.fastgpt.cn/docs/use-cases/app-cases/multi_turn_translation_bot/" target="_blank" class="external-link">多轮翻译机器人 | FastGPT</a></li>
+</ul>
+</main>
+<aside>
+<div class="sidebar">
+<div class="sidebar-container">
+<script>async function fetchGraphData(){const e=await fetch("/graph.json").then((e=>e.json()));return{graphData:e,fullGraphData:filterFullGraphData(e)}}function getNextLevelNeighbours(e,t){const n=Object.values(e).map((e=>e.neighbors)).flat();return Object.keys(t).reduce(((r,l)=>(-1!=n.indexOf(l)?t[l].hide||(e[l]=t[l]):r[l]=t[l],r)),{})}function filterLocalGraphData(e,t){if(null==e)return null;let n=JSON.parse(JSON.stringify(e.nodes)),r=JSON.parse(JSON.stringify(e.links)),l=n[decodeURI(window.location.pathname)]||Object.values(n).find((e=>e.home));if(delete n[l.url],!l.home){delete n[Object.values(n).find((e=>e.home)).url]}l.current=!0;let i={};i[l.url]=l;for(let e=0;e<t;e++)n=getNextLevelNeighbours(i,n);nodes=Object.values(i),l.home||(nodes=nodes.filter((e=>!e.home)));let o=nodes.map((e=>e.id));return{nodes:nodes,links:r.filter((function(e){return o.indexOf(e.target)>-1&&o.indexOf(e.source)>-1}))}}function getCssVar(e){return getComputedStyle(document.body).getPropertyValue(e)}function htmlDecode(e){return(new DOMParser).parseFromString(e,"text/html").documentElement.textContent}function renderGraph(e,t,n,r){if(null==e)return;const l=document.getElementById(t);width=l.offsetWidth,height=l.offsetHeight;const i=new Set;let o=null;const a=getCssVar("--graph-main"),s=getCssVar("--graph-muted");let u=ForceGraph()(l).graphData(e).nodeId("id").nodeLabel("title").linkSource("source").linkTarget("target").d3AlphaDecay(.1).width(width).height(height).linkDirectionalArrowLength(2).linkDirectionalArrowRelPos(.5).autoPauseRedraw(!1).linkColor((e=>null==o||e.source.id==o.id||e.target.id==o.id?a:s)).nodeCanvasObject(((e,t)=>{const n=e.neighbors&&e.neighbors.length||2,r=Math.min(7,Math.max(n/2,2));t.beginPath(),t.arc(e.x,e.y,r,0,2*Math.PI,!1),null==o||e==o||i.has(e.url)?t.fillStyle=a:t.fillStyle=s,t.fill(),e.current&&(t.beginPath(),t.arc(e.x,e.y,r+1,0,2*Math.PI,!1),t.lineWidth=.5,t.strokeStyle=a,t.stroke());const l=htmlDecode(e.title);t.font="3.5px Sans-Serif",t.textAlign="center",t.textBaseline="top",t.fillText(l,e.x,e.y+r+2)})).onNodeClick((e=>{window.location=e.url})).onNodeHover((e=>{i.clear(),e&&(i.add(e),e.neighbors.forEach((e=>i.add(e)))),o=e||null}));return(r||null!=n&&e.nodes.length>4)&&setTimeout((()=>{u.zoomToFit(5,75)}),n||200),u}function renderLocalGraph(e,t,n){window.graph&&window.graph._destructor();return renderGraph(filterLocalGraphData(e,t),"link-graph",null,n)}function filterFullGraphData(e){if(null==e)return null;e=JSON.parse(JSON.stringify(e));const t=Object.values(e.nodes).filter((e=>e.hide)).map((e=>e.id));return{links:JSON.parse(JSON.stringify(e.links)).filter((e=>-1==t.indexOf(e.source)&&-1==t.indexOf(e.target))),nodes:[...Object.values(e.nodes).filter((e=>!e.hide))]}}function openFullGraph(e){return lucide.createIcons({attrs:{class:["svg-icon"]}}),renderGraph(e,"full-graph-container",200,!1)}function closefullGraph(e){return e&&e._destructor(),null}</script>
+<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div class="graph-title-container">
+<div class="graph-title">Connected Pages</div>
+<div id="graph-controls">
+<div class="depth-control">
+<label for="graph-depth">Depth</label>
+<div class="slider">
+<input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth">
+<datalist id="depthmarkers">
+<option value="1" label="1"></option>
+<option value="2" label="2"></option>
+<option value="3" label="3"></option>
+</datalist>
+</div>
+<span id="depth-display" x-text="depth"></span>
+</div>
+<div class="ctrl-right">
+<span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i icon-name="globe" aria-hidden="true"></i></span>
+<span id="graph-fs-btn" x-on:click="fullScreen = !fullScreen"><i icon-name="expand" aria-hidden="true"></i></span>
+</div>
+</div>
+</div>
+<div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph"></div>
+<div x-show="showFullGraph" id="full-graph" class="show" style="display:none">
+<span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+</div>
+</div>
+<div class="toc">
+<div class="toc-title-container">
+<div class="toc-title">
+On this page
+</div>
+</div>
+<div class="toc-container">
+<nav class="toc">
+<ol>
+<li><a href="#前言">前言</a>
+</li>
+<li><a href="#效果展示">效果展示</a>
+</li>
+<li><a href="#实现方法">实现方法</a>
+<ol>
+<li><a href="#prompt">单次 prompt 实现</a>
+<ol>
+<li><a href="#bob">bob</a>
+</li>
+<li><a href="#浏览器插件：划词翻译">浏览器插件：划词翻译</a>
+</li>
+<li><a href="#沉浸式翻译">沉浸式翻译</a>
+</li>
+</ol>
+</li>
+<li><a href="#langchain">langchain 实现</a>
+<ol>
+<li><a href="#fastgpt">fastgpt</a>
+</li>
+<li><a href="#defy">defy</a>
+</li>
+<li><a href="#n8n">n8n</a>
+<ol>
+<li><a href="#n8n-1">n8n+ 划词翻译</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#综述">综述</a>
+<ol>
+<li><a href="#学术界的相关研究成果">学术界的相关研究成果</a>
+<ol>
+<li><a href="#translation-agent">吴恩达团队开源的翻译智能体 Translation-agent</a>
+</li>
+<li><a href="#哈工大与鹏城实验室的论文">哈工大与鹏城实验室的论文</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a href="#dual-reflect">论文总结 ：DUAL-REFLECT：基于双向学习反馈机制增强大语言模型的反思性翻译能力</a>
+</li>
+<li><a href="#论文背景">论文背景</a>
+</li>
+<li><a href="#dual-reflect-1">DUAL-REFLECT 方法</a>
+</li>
+<li><a href="#实验与评估">实验与评估</a>
+</li>
+<li><a href="#结论">结论</a>
+<ol>
+<li><a href="#局限性">局限性</a>
+</li>
+<li><a href="#贡献">贡献</a>
+</li>
+</ol>
+</li>
+<li><a href="#关联笔记">关联笔记</a>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<div class="backlinks">
+<div class="backlink-title" style="margin:4px 0!important">Pages mentioning this page</div>
+<div class="backlink-list"><div class="backlink-card"><i icon-name="link"></i><a href="/效率工具/ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译/" data-note-icon="" class="backlink">ollama离线运行AI模型+反思翻译法+沉浸式翻译=免费又好用的翻译？最具性价比的选择！</a>
+</div><div class="backlink-card"><i icon-name="link"></i><a href="/" data-note-icon="" class="backlink">博客首页</a>
+</div></div>
+</div>
+</div>
+</div>
+</aside>
+<style>#tooltip-wrapper{background:var(--background-primary);padding:1em;border-radius:4px;overflow:hidden;position:fixed;width:80%;max-width:400px;height:auto;max-height:300px;font-size:.8em;box-shadow:0 5px 10px rgba(0,0,0,.1);opacity:0;transition:opacity .1s;unicode-bidi:plaintext;overflow-y:scroll;z-index:10}#tooltip-wrapper:after{content:"";position:absolute;z-index:1;bottom:0;left:0;pointer-events:none;width:100%;unicode-bidi:plaintext;height:75px}</style>
+<div style="opacity:0;display:none" id="tooltip-wrapper">
+<div id="tooltip-content">
+</div>
+</div>
+<iframe style="display:none;height:0;width:0" id="link-preview-iframe" src="">
+</iframe>
+<script>var opacityTimeout,contentTimeout,transitionDurationMs=100,iframe=document.getElementById("link-preview-iframe"),tooltipWrapper=document.getElementById("tooltip-wrapper"),tooltipContent=document.getElementById("tooltip-content"),linkHistories={};function hideTooltip(){opacityTimeout=setTimeout((function(){tooltipWrapper.style.opacity=0,contentTimeout=setTimeout((function(){tooltipContent.innerHTML="",tooltipWrapper.style.display="none"}),transitionDurationMs+1)}),transitionDurationMs)}function showTooltip(t){var e=t.target,o=e.getClientRects()[e.getClientRects().length-1],i=window.pageYOffset||document.documentElement.scrollTop,n=t.target.getAttribute("href");if(-1===n.indexOf("http")||-1!==n.indexOf(window.location.host)){let t=n.split("#")[0];linkHistories[t]?(tooltipContent.innerHTML=linkHistories[t],tooltipWrapper.style.display="block",setTimeout((function(){if(tooltipWrapper.style.opacity=1,-1!=n.indexOf("#")){let t=n.split("#")[1];const e=tooltipWrapper.querySelector(`[id='${t}']`);e.classList.add("referred"),e.scrollIntoView({behavior:"smooth"},!0)}else tooltipWrapper.scroll(0,0)}),1)):(iframe.src=t,iframe.onload=function(){tooltipContentHtml="",tooltipContentHtml+='<div style="font-weight: bold; unicode-bidi: plaintext;">'+iframe.contentWindow.document.querySelector("h1").innerHTML+"</div>",tooltipContentHtml+=iframe.contentWindow.document.querySelector(".content").innerHTML,tooltipContent.innerHTML=tooltipContentHtml,linkHistories[t]=tooltipContentHtml,tooltipWrapper.style.display="block",tooltipWrapper.scrollTop=0,setTimeout((function(){if(tooltipWrapper.style.opacity=1,-1!=n.indexOf("#")){let t=n.split("#")[1];const e=tooltipWrapper.querySelector(`[id='${t}']`);e.classList.add("referred"),console.log(e),e.scrollIntoView({behavior:"smooth"},!0)}else tooltipWrapper.scroll(0,0)}),1)}),tooltipWrapper.style.left=o.left-tooltipWrapper.offsetWidth/2+o.width/2+"px",window.innerHeight-o.top<tooltipWrapper.offsetHeight?tooltipWrapper.style.top=o.top+i-tooltipWrapper.offsetHeight-10+"px":window.innerHeight-o.top>tooltipWrapper.offsetHeight&&(tooltipWrapper.style.top=o.top+i+35+"px"),o.left+o.width/2<tooltipWrapper.offsetWidth/2?tooltipWrapper.style.left="10px":document.body.clientWidth-o.left-o.width/2<tooltipWrapper.offsetWidth/2&&(tooltipWrapper.style.left=document.body.clientWidth-tooltipWrapper.offsetWidth-20+"px")}}function setupListeners(t){t.addEventListener("mouseleave",(function(t){hideTooltip()})),tooltipWrapper.addEventListener("mouseleave",(function(t){hideTooltip()})),t.addEventListener("mouseenter",(function(t){clearTimeout(opacityTimeout),clearTimeout(contentTimeout),showTooltip(t)})),tooltipWrapper.addEventListener("mouseenter",(function(t){clearTimeout(opacityTimeout),clearTimeout(contentTimeout)}))}window.addEventListener("load",(function(t){document.querySelectorAll(".internal-link").forEach(setupListeners),document.querySelectorAll(".backlink-card a").forEach(setupListeners)}))</script>
+<script>window.location.hash&&document.getElementById(window.location.hash.slice(1)).classList.add("referred"),window.addEventListener("hashchange",(e=>{const t=e.oldURL.split("#");t[1]&&document.getElementById(t[1]).classList.remove("referred");const n=e.newURL.split("#");n[1]&&document.getElementById(n[1]).classList.add("referred")}),!1);const url_parts=window.location.href.split("#"),url=url_parts[0],referrence=url_parts[1];document.querySelectorAll(".cm-s-obsidian > *[id]").forEach((function(e){e.ondblclick=function(e){const t=url+"#"+e.target.id;navigator.clipboard.writeText(t)}}))</script>
+<script src="https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js"></script>
+<script defer="defer">TIMESTAMP_FORMAT="MMM dd, yyyy h:mm a",document.querySelectorAll(".human-date").forEach((function(e){date=e.getAttribute("data-date")||e.innerText,parsed_date=luxon.DateTime.fromISO(date),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromSQL(date)),null!=parsed_date.invalid&&(parsed_date=luxon.DateTime.fromHTML(date)),e.innerHTML=parsed_date.toFormat(TIMESTAMP_FORMAT)}))</script>
+<div id="giscus-container">
+<script src="https://giscus.app/client.js" data-repo="dangehub/qlog" data-repo-id="R_kgDOMiDbtQ" data-category="Announcements" data-category-id="DIC_kwDOMiDbtc4CiS8E" data-mapping="title" data-strict="1" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme" data-lang="zh-CN" data-loading="lazy" crossorigin="anonymous" async></script>
+</div>
+<script>lucide.createIcons({attrs:{class:["svg-icon"]}})</script>
+</body>
+</html>
