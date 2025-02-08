@@ -3,14 +3,14 @@
     <title>阿曲的荒原</title>
     <link href="https://blog.qudange.top/feed.xml" rel="self" />
     <link href="https://blog.qudange.top" />
-    <updated>2025-02-08T04:30:09Z</updated>
+    <updated>2025-02-08T08:13:28Z</updated>
     <id>https://blog.qudange.top</id>
         <entry>
             <title>
                 README
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/</id>
             <content type="html">
                 &lt;h1 id=&quot;十分冷淡存知己 一曲微茫度余生&quot; tabindex=&quot;-1&quot;&gt;十分冷淡存知己 一曲微茫度余生&lt;/h1&gt;
@@ -93,7 +93,7 @@
 &lt;td&gt;2025-01-03&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;&lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://blog.qudange.top/AI/%E7%94%A8%E5%8F%8D%E6%80%9D%E7%BF%BB%E8%AF%91%E6%B3%95%E6%8F%90%E5%8D%87%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BF%BB%E8%AF%91%E8%B4%A8%E9%87%8F/&quot;&gt;用反思翻译法提升大语言模型的翻译质量&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://blog.qudange.top/404&quot; target=&quot;&quot;&gt;用反思翻译法提升大语言模型翻译的质量&lt;/a&gt;&lt;/td&gt;
 &lt;td&gt;2024-12-30&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
@@ -156,7 +156,7 @@
                 迈向爱折腾的geek的第一步——学会提问、学会查资料
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/迈向爱折腾的geek的第一步——学会提问、学会查资料/</id>
             <content type="html">
                 &lt;h1 id=&quot;geek&quot; tabindex=&quot;-1&quot;&gt;迈向爱折腾的 geek 的第一步：学会提问、学会查资料&lt;/h1&gt;
@@ -254,7 +254,7 @@
                 follow认证文件
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/自托管折腾/follow认证文件/</id>
             <content type="html">
                 &lt;p&gt;This message is used to verify that this feed (feedId:105271225522095104) belongs to me (userId:72208719763571712). Join me in enjoying the next generation information browser &lt;a href=&quot;https://follow.is/&quot; target=&quot;_blank&quot; class=&quot;external-link&quot;&gt;https://follow.is&lt;/a&gt;.&lt;/p&gt;
@@ -270,7 +270,7 @@
                 ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/效率工具/ollama离线运行AI模型-反思翻译法-沉浸式翻译-免费又好用的翻译/</id>
             <content type="html">
                 &lt;h1 id=&quot;前言&quot; tabindex=&quot;-1&quot;&gt;前言&lt;/h1&gt;
@@ -284,7 +284,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&quot;起因&quot; tabindex=&quot;-1&quot;&gt;起因&lt;/h2&gt;
 &lt;p&gt;我们不能回避的一个现状是：大部分领域的英文语料都是相当有价值的，因此阅读英文依然是我们的必修课。但所幸我们已经有很多工具来减轻英语阅读的负担，以我个人为例，我最常用的两个工具是 &lt;code&gt;沉浸式翻译&lt;/code&gt; 和 &lt;code&gt;bob&lt;/code&gt; （macos 上的一个全局划词翻译软件）。&lt;/p&gt;
-&lt;p&gt;其中沉浸式翻译是我在 mac、win、ios、android 四端都在使用的插件。一般我会先用沉浸式翻译的机翻来粗读文章，遇见低质翻译或长难句等需要精读英文时会使用划词翻译 + &lt;a class=&quot;internal-link&quot; target=&quot;&quot; data-note-icon=&quot;&quot; href=&quot;https://blog.qudange.top/AI/%E7%94%A8%E5%8F%8D%E6%80%9D%E7%BF%BB%E8%AF%91%E6%B3%95%E6%8F%90%E5%8D%87%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BF%BB%E8%AF%91%E8%B4%A8%E9%87%8F/&quot;&gt;反思翻译法&lt;/a&gt;。因为现在 LLM api 的价格、并发限制与延迟，我一般不会在全局使用 LLM 翻译。粗读时往往会在沉浸式翻译自带的、开箱即用的微软翻译与 google 翻译里来回切换（因为频繁翻译会被限制，需要二者切换使用）。&lt;/p&gt;
+&lt;p&gt;其中沉浸式翻译是我在 mac、win、ios、android 四端都在使用的插件。一般我会先用沉浸式翻译的机翻来粗读文章，遇见低质翻译或长难句等需要精读英文时会使用划词翻译 + &lt;a class=&quot;internal-link is-unresolved&quot; href=&quot;https://blog.qudange.top/404&quot; target=&quot;&quot;&gt;反思翻译法&lt;/a&gt;。因为现在 LLM api 的价格、并发限制与延迟，我一般不会在全局使用 LLM 翻译。粗读时往往会在沉浸式翻译自带的、开箱即用的微软翻译与 google 翻译里来回切换（因为频繁翻译会被限制，需要二者切换使用）。&lt;/p&gt;
 &lt;p&gt;最近因为 deepseek 的开源，又开始折腾起本地部署 LLM，突然又萌生起使用本地 LLM 来做翻译的想法，测试了一下，发现 2b 的小模型做段落级翻译居然也相当不错，于是写下本文。&lt;/p&gt;
 &lt;h1 id=&quot;配置教程&quot; tabindex=&quot;-1&quot;&gt;配置教程&lt;/h1&gt;
 &lt;ol&gt;
@@ -295,7 +295,7 @@
 &lt;/ol&gt;
 &lt;h1 id=&quot;效果展示&quot; tabindex=&quot;-1&quot;&gt;效果展示&lt;/h1&gt;
 &lt;p&gt;因为发现 2b 的模型其实翻译效果也还可以，比机翻要好一点。而使用在线 LLM api 既不稳定还贵。下面我们做一下对比。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://blog.qudange.top/img/user/101-%E6%97%A5%E8%AE%B0/assets/48490.jpeg&quot; alt=&quot;assets/48490.jpeg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.qudange.top/img/user/107-%E6%88%91%E7%9A%84%E5%88%9B%E4%BD%9C/%E6%96%87%E5%AD%97/%E5%8D%9A%E5%AE%A2%E5%8F%91%E5%B8%83/AI/assets/img-20250208152431854.jpeg&quot; alt=&quot;../AI/assets/img-20250208152431854.jpeg&quot; /&gt;&lt;/p&gt;
 &lt;p&gt;依次分别为微软翻译、google 翻译、gemma2:2b、deepseek-v3（在线 api）&lt;/p&gt;
 &lt;p&gt;为了未来对比效果，我也把原文放在这里&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Is the UK about to ban running LLMs locally?
@@ -344,7 +344,7 @@ It seems to me that any uncensored LLM run locally can be used to generate illeg
                 让Obsidian的光标丝滑移动
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/Obsidian/让Obsidian的光标丝滑移动/</id>
             <content type="html">
                 &lt;h1 id=&quot;前言&quot; tabindex=&quot;-1&quot;&gt;前言&lt;/h1&gt;
@@ -425,7 +425,7 @@ body:has(.x-cursor) * {
                 在移动端设备上管理Obsidian待办的方法探讨
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/Obsidian/在移动端设备上管理Obsidian待办的方法探讨/</id>
             <content type="html">
                 &lt;h1 id=&quot;前言&quot; tabindex=&quot;-1&quot;&gt;前言&lt;/h1&gt;
@@ -524,7 +524,7 @@ body:has(.x-cursor) * {
                 一键把excalidraw的头脑风暴输出为线性文章
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/Obsidian/一键把excalidraw的头脑风暴输出为线性文章/</id>
             <content type="html">
                 &lt;h1 id=&quot;发散性思考与线性输出&quot; tabindex=&quot;-1&quot;&gt;发散性思考与线性输出&lt;/h1&gt;
@@ -1331,7 +1331,7 @@ new Notice(`✅ Excalidraw 内容已更新到文件：${outputPath}`, 2000);
                 Thino与Mac软件popclip联动-实现系统级全局划词摘录
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/Obsidian/Thino与Mac软件popclip联动-实现系统级全局划词摘录/</id>
             <content type="html">
                 &lt;p&gt;简单介绍一下 popclip：&lt;/p&gt;
@@ -1356,7 +1356,7 @@ new Notice(`✅ Excalidraw 内容已更新到文件：${outputPath}`, 2000);
                 Obsidian轻量级PPT教程
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/Obsidian/Obsidian轻量级PPT教程/</id>
             <content type="html">
                 &lt;h1 id=&quot;前言&quot; tabindex=&quot;-1&quot;&gt;前言&lt;/h1&gt;
@@ -1480,7 +1480,7 @@ new Notice(`✅ Excalidraw 内容已更新到文件：${outputPath}`, 2000);
                 Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/Obsidian/Obsidian插件测评/Obsidian插件测评-i18n-汉化插件、翻译词典编辑器、云端共享词典、内置沉浸式翻译/</id>
             <content type="html">
                 &lt;h1 id=&quot;插件简介&quot; tabindex=&quot;-1&quot;&gt;插件简介&lt;/h1&gt;
@@ -1877,7 +1877,7 @@ console.error(&#39;清理过程中出错:&#39;, error);
                 Obsidian插件测评-BetterPluginsManager-插件分组、标签管理，插件备注，延迟启动
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/Obsidian/Obsidian插件测评/Obsidian插件测评-BetterPluginsManager-插件分组、标签管理，插件备注，延迟启动/</id>
             <content type="html">
                 &lt;h1 id=&quot;插件简介&quot; tabindex=&quot;-1&quot;&gt;插件简介&lt;/h1&gt;
@@ -1937,7 +1937,7 @@ console.error(&#39;清理过程中出错:&#39;, error);
                 Obsidian技巧之用maoxian插件剪藏网络文章，同时把图片下载到本地
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/Obsidian/Obsidian技巧之用maoxian插件剪藏网络文章，同时把图片下载到本地/</id>
             <content type="html">
                 &lt;h1 id=&quot;前言&quot; tabindex=&quot;-1&quot;&gt;前言&lt;/h1&gt;
@@ -2199,7 +2199,7 @@ console.error(&#39;清理过程中出错:&#39;, error);
                 Obsidian实现复制时自动上传图片到图床
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/Obsidian/Obsidian实现复制时自动上传图片到图床/</id>
             <content type="html">
                 &lt;h1 id=&quot;obsidian&quot; tabindex=&quot;-1&quot;&gt;Obsidian 实现复制时自动上传图片到图床&lt;/h1&gt;
@@ -2359,7 +2359,7 @@ function copyToClipboard(extrTexts) {
                 用反思翻译法提升大语言模型的翻译质量
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/AI/用反思翻译法提升大语言模型的翻译质量/</id>
             <content type="html">
                 &lt;h1 id=&quot;前言&quot; tabindex=&quot;-1&quot;&gt;前言&lt;/h1&gt;
@@ -2556,7 +2556,7 @@ function copyToClipboard(extrTexts) {
                 用n8n实现反思翻译
                 
             </title>
-            <updated>2025-02-08T04:30:00Z</updated>
+            <updated>2025-02-08T08:13:20Z</updated>
             <id>https://blog.qudange.top/AI/用n8n实现反思翻译/</id>
             <content type="html">
                 &lt;p&gt;用 defy 搭建三步翻译老是报错，想自托管发现 defy 的配置要求很高，于是准备先用之前的 n 8 n 试试。&lt;/p&gt;
