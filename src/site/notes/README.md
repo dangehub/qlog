@@ -1,5 +1,5 @@
 ---
-{"uid":20241230193952,"title":"博客首页","tags":["gardenEntry"],"description":null,"author":"曲淡歌","modified":20250208120127,"dg-publish":true,"dg-home":true,"permalink":"/README/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20241230193952,"title":"博客首页","tags":["gardenEntry"],"description":null,"author":"曲淡歌","modified":20250208120257,"dg-publish":true,"dg-home":true,"permalink":"/README/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -18,6 +18,7 @@
 
 # 在哪能找到我
 
+- 在 Vercel 查看我的博客（中国大陆网络可正常访问）：[blog.qudange.top](https://blog.qudange.top)
 - 在 Github page 上查看我的博客：[dangehub.github.io](https://dangehub.github.io)
 - 使用 RSS 关注我的博客：[blog.qudange.top/feed.xml](https://blog.qudange.top/feed.xml)
 - 使用 follow 关注我的博客：[app.follow.is/share/feeds/105271225522095104](https://app.follow.is/share/feeds/105271225522095104)
