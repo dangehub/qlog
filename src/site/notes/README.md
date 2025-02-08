@@ -1,5 +1,5 @@
 ---
-{"uid":20241230193952,"title":"博客首页","tags":["gardenEntry"],"description":null,"author":"曲淡歌","modified":20250208120257,"dg-publish":true,"dg-home":true,"permalink":"/README/","dgPassFrontmatter":true,"noteIcon":""}
+{"uid":20241230193952,"title":"博客首页","tags":["gardenEntry","gardenEntry"],"description":null,"author":"曲淡歌","modified":20250208120257,"dg-publish":true,"dg-home":true,"permalink":"/README/","dgPassFrontmatter":true,"noteIcon":""}
 ---
 
 
@@ -57,7 +57,7 @@ Mastodon、Misskey 等兼容联邦宇宙的平台关注 `qudange@blogs.qudange.t
 | [[107-我的创作/文字/博客发布/Obsidian/用css让obsidian中的扫描黑白文档融入笔记背景\|用css让obsidian中的扫描黑白文档融入笔记背景]]                                                                  | 2025-01-06 |
 | [[107-我的创作/文字/博客发布/Obsidian/Obsidian轻量级PPT教程\|Obsidian轻量级PPT教程]]                                                                                        | 2025-01-04 |
 | [[107-我的创作/文字/博客发布/效率工具/优化macOS的触摸板体验\|优化macOS的触摸板体验]]                                                                                                  | 2025-01-03 |
-| [[107-我的创作/文字/博客发布/AI/用反思翻译法提升大语言模型的翻译质量\|用反思翻译法提升大语言模型的翻译质量]]                                                                                          | 2024-12-30 |
+| [[107-我的创作/文字/博客发布/AI/用反思翻译法提升大语言模型翻译的质量\|用反思翻译法提升大语言模型翻译的质量]]                                                                                          | 2024-12-30 |
 | [[107-我的创作/文字/博客发布/Obsidian/我维护了一个obsidian示例库，分享了我的obsidian工作流\|我维护了一个obsidian示例库，分享了我的obsidian工作流]]                                                    | 2024-12-30 |
 | [[107-我的创作/文字/博客发布/Obsidian/把Obsidian发布为网页的各种方式探索\|把Obsidian发布为网页的各种方式探索]]                                                                              | 2024-12-30 |
 | [[107-我的创作/文字/博客发布/多媒体制作/口播剪辑工作流探索\|口播剪辑工作流探索]]                                                                                                         | 2024-12-30 |
