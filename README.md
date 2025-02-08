@@ -1,5 +1,9 @@
 # 我的obsidian数字花园仓库：荒原往事
 
+Vercel地址：[blog.qudange.top](blog.qudange.top)
+
+Github pages地址：[dangehub.github.io](dangehub.github.io)
+
 相比于原模板，我进行了**如下改动**：
 - 增加了docker支持
 - 增加了gisus评论系统
